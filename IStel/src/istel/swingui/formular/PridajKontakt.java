@@ -164,9 +164,11 @@ public class PridajKontakt extends javax.swing.JPanel implements IFormObsluha {
 
 private void jPridajKontaktButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPridajKontaktButtonActionPerformed
     //Ak je nieje ani jedno z policok prazdne(vsetky su vyplnene)
-    if(!(jMenoText.toString().equalsIgnoreCase("") || jPriezviskotext.toString().equalsIgnoreCase("") || jAdresaText.toString().equalsIgnoreCase("") || jCisloDomu.toString().equalsIgnoreCase("") || jMestoText.toString().equalsIgnoreCase("") || jPSCText.toString().equalsIgnoreCase("") ||jTelefonText.toString().equalsIgnoreCase(""))){
+   // if((jMenoText.getText().equalsIgnoreCase("") || jPriezviskotext.getText().equalsIgnoreCase("") || jAdresaText.getText().equalsIgnoreCase("") || jCisloDomu.getText().equalsIgnoreCase("") || jMestoText.getText().equalsIgnoreCase("") || jPSCText.getText().equalsIgnoreCase("") ||jTelefonText.getText().equalsIgnoreCase(""))){
        Jadro jadro = new Jadro();
-       jadro.pridajKontakt(jMenoText.toString(), jPriezviskotext.toString(), jAdresaText.toString(), jCisloDomu.toString(), jMestoText.toString(), jPSCText.toString(), jTelefonText.toString());
+       System.out.println();
+           //System.out.println(jMestoText.getText());
+       jadro.pridajKontakt(jMenoText.getText(), jPriezviskotext.getText(), jAdresaText.getText(), jCisloDomu.getText(), jMestoText.getText(), jPSCText.getText(), jTelefonText.getText());
        if(true){
            jMenoText.setText("");
            jPriezviskotext.setText("");
@@ -176,9 +178,9 @@ private void jPridajKontaktButtonActionPerformed(java.awt.event.ActionEvent evt)
            jPSCText.setText("");
            jTelefonText.setText("");
        } 
-    }else {
-        jWarningLabel.setText("Musis vyplnit vsetky policka!");
-    }
+    //}else {
+    //    jWarningLabel.setText("Musis vyplnit vsetky policka!");
+   // }
     
     
 }//GEN-LAST:event_jPridajKontaktButtonActionPerformed

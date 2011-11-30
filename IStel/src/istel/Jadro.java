@@ -25,8 +25,9 @@ public class Jadro {
     }
     
     public void pridajKontakt(String meno, String priezvisko, String adresa, String cisloDomu, String mesto, String psc, String telefon){
-        
-        
+        int cislo = Integer.parseInt(psc);
+        System.out.println(cislo);
+        System.out.println(mesto);
          try {
             Class.forName(DatabaseSetting.DRIVER_CLASS);
             Connection connection = DriverManager.getConnection(DatabaseSetting.URL,
@@ -35,11 +36,14 @@ public class Jadro {
 
             PreparedStatement pstm = connection.prepareStatement(DatabaseSetting.QUERY_ADD_INTO_OBEC);
             pstm.setString(1, mesto);
-            pstm.setString(2, psc);
+            
+            
+           
+            pstm.setInt(2, cislo);
             pstm.execute(); 
             pstm.close();
             
-            PreparedStatement pstm2 = connection.prepareStatement(DatabaseSetting.QUERY_ADD_INTO_ADRESA);
+         /*   PreparedStatement pstm2 = connection.prepareStatement(DatabaseSetting.QUERY_ADD_INTO_ADRESA);
             pstm2.setString(1, adresa);
            //convert string into t
             int cislo = Integer.parseInt(cisloDomu);
@@ -57,7 +61,7 @@ public class Jadro {
             pstm4.setString(1, telefon);
             pstm4.execute(); 
             pstm4.close();
-            
+            */
             connection.close();
         } catch (Exception e) {
             System.out.println("Exception occured during saving high score to database: "

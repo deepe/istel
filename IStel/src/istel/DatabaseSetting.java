@@ -5,9 +5,9 @@ package istel;
  */
 public class DatabaseSetting {
     /** Database driver **/
-    public static final String DRIVER_CLASS = "org.apache.derby.jdbc.ClientDriver";
+    public static final String DRIVER_CLASS = "com.mysql.jdbc.Driver";
     /** Url adress to database */
-    public static final String URL = "jdbc:derby://localhost/minesweeper";
+    public static final String URL = "jdbc:mysql://jukebox:3306/telenofonnyzoznam";
     /** User name to database */
     public static final String USER = "teluser";
     /** Password to database */
