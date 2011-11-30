@@ -5,9 +5,9 @@ package istel;
  */
 public class DatabaseSetting {
     /** Database driver **/
-    public static final String DRIVER_CLASS = "org.apache.derby.jdbc.ClientDriver";
+    public static final String DRIVER_CLASS = "com.mysql.jdbc.Driver";
     /** Url adress to database */
-    public static final String URL = "jdbc:derby://localhost/minesweeper";
+    public static final String URL = "jdbc:mysql://147.232.179.140:3306/telzoznam";
     /** User name to database */
     public static final String USER = "teluser";
     /** Password to database */
@@ -23,13 +23,14 @@ public class DatabaseSetting {
     
     
     //---------------------------------
-    public static final String QUERY_ADD_INTO_OSOBA = "INSERT INTO osoba (id_adresa, meno, priezvisko) VALUES (LAST_INSERT_ID(), ?, ?)";
-    
-    public static final String QUERY_ADD_INTO_CISLO = "INSERT INTO cislo (tel_cislo, id_osoba) VALUES (?, LAST_INSERT_ID())";
-    
+    public static final String QUERY_ADD_INTO_OBEC = "INSERT INTO obec (obec, psc) VALUES (?, ?)";
     public static final String QUERY_ADD_INTO_ADRESA = "INSERT INTO adresa (id_obec, ulica, cislo_domu) VALUES (LAST_INSERT_ID(), ?, ?)";
+    public static final String QUERY_ADD_INTO_OSOBA = "INSERT INTO osoba (id_adresa, meno, priezvisko) VALUES (LAST_INSERT_ID(), ?, ?)";
+    public static final String QUERY_ADD_INTO_CISLO = "INSERT INTO cislo (id_osoba, tel_cislo) VALUES (LAST_INSERT_ID(), ?)";
     
-    public static final String QUERY_ADD_INTO_OBEC = "INSERT INTO obec ( obec, psc) VALUES (?, ?)";
+    
+    
+    
     
     
     

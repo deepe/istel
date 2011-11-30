@@ -32,8 +32,8 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jMestoText" alignment="0" pref="278" max="32767" attributes="0"/>
-                                  <Component id="jPSCText" alignment="0" pref="278" max="32767" attributes="0"/>
-                                  <Component id="jTelefonText" alignment="0" pref="278" max="32767" attributes="0"/>
+                                  <Component id="jTextPSC" alignment="0" pref="278" max="32767" attributes="0"/>
+                                  <Component id="jTextTelefon" alignment="0" pref="278" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -54,9 +54,9 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jPriezviskotext" pref="274" max="32767" attributes="0"/>
-                          <Component id="jMenoText" alignment="0" pref="274" max="32767" attributes="0"/>
-                          <Component id="jAdresaText" alignment="0" pref="274" max="32767" attributes="0"/>
+                          <Component id="jTextPriezvisko" pref="274" max="32767" attributes="0"/>
+                          <Component id="jTextMeno" alignment="0" pref="274" max="32767" attributes="0"/>
+                          <Component id="jTextAdresa" alignment="0" pref="274" max="32767" attributes="0"/>
                           <Component id="jCisloDomu" alignment="0" pref="274" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -71,17 +71,17 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jMenoText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextMeno" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jPriezviskotext" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextPriezvisko" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jAdresaText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextAdresa" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -96,12 +96,12 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jPSCText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextPSC" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTelefonText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparator1" min="-2" pref="13" max="-2" attributes="0"/>
@@ -146,23 +146,23 @@
         <Property name="text" type="java.lang.String" value="Tel. cislo:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jMenoText">
+    <Component class="javax.swing.JTextField" name="jTextMeno">
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Name"/>
       </AccessibilityProperties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenoTextActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextMenoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jPriezviskotext">
+    <Component class="javax.swing.JTextField" name="jTextPriezvisko">
     </Component>
-    <Component class="javax.swing.JTextField" name="jAdresaText">
+    <Component class="javax.swing.JTextField" name="jTextAdresa">
     </Component>
     <Component class="javax.swing.JTextField" name="jMestoText">
     </Component>
-    <Component class="javax.swing.JTextField" name="jPSCText">
+    <Component class="javax.swing.JTextField" name="jTextPSC">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTelefonText">
+    <Component class="javax.swing.JTextField" name="jTextTelefon">
     </Component>
     <Component class="javax.swing.JButton" name="jPridajKontaktButton">
       <Properties>

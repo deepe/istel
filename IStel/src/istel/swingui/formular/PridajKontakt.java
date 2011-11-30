@@ -39,12 +39,12 @@ public class PridajKontakt extends javax.swing.JPanel implements IFormObsluha {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jMenoText = new javax.swing.JTextField();
-        jPriezviskotext = new javax.swing.JTextField();
-        jAdresaText = new javax.swing.JTextField();
+        jTextMeno = new javax.swing.JTextField();
+        jTextPriezvisko = new javax.swing.JTextField();
+        jTextAdresa = new javax.swing.JTextField();
         jMestoText = new javax.swing.JTextField();
-        jPSCText = new javax.swing.JTextField();
-        jTelefonText = new javax.swing.JTextField();
+        jTextPSC = new javax.swing.JTextField();
+        jTextTelefon = new javax.swing.JTextField();
         jPridajKontaktButton = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jWarningLabel = new javax.swing.JLabel();
@@ -63,9 +63,9 @@ public class PridajKontakt extends javax.swing.JPanel implements IFormObsluha {
 
         jLabel6.setText("Tel. cislo:");
 
-        jMenoText.addActionListener(new java.awt.event.ActionListener() {
+        jTextMeno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenoTextActionPerformed(evt);
+                jTextMenoActionPerformed(evt);
             }
         });
 
@@ -97,8 +97,8 @@ public class PridajKontakt extends javax.swing.JPanel implements IFormObsluha {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jMestoText, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
-                                    .addComponent(jPSCText, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
-                                    .addComponent(jTelefonText, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)))))
+                                    .addComponent(jTextPSC, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+                                    .addComponent(jTextTelefon, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jWarningLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -113,9 +113,9 @@ public class PridajKontakt extends javax.swing.JPanel implements IFormObsluha {
                             .addComponent(jLabel7))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPriezviskotext, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                            .addComponent(jMenoText, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                            .addComponent(jAdresaText, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                            .addComponent(jTextPriezvisko, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                            .addComponent(jTextMeno, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                            .addComponent(jTextAdresa, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
                             .addComponent(jCisloDomu, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -125,15 +125,15 @@ public class PridajKontakt extends javax.swing.JPanel implements IFormObsluha {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jMenoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextMeno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jPriezviskotext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextPriezvisko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jAdresaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextAdresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -145,11 +145,11 @@ public class PridajKontakt extends javax.swing.JPanel implements IFormObsluha {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jPSCText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextPSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTelefonText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -159,36 +159,25 @@ public class PridajKontakt extends javax.swing.JPanel implements IFormObsluha {
                 .addContainerGap())
         );
 
-        jMenoText.getAccessibleContext().setAccessibleName("Name");
+        jTextMeno.getAccessibleContext().setAccessibleName("Name");
     }// </editor-fold>//GEN-END:initComponents
 
 private void jPridajKontaktButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPridajKontaktButtonActionPerformed
-    //Ak je nieje ani jedno z policok prazdne(vsetky su vyplnene)
-    if(!(jMenoText.toString().equalsIgnoreCase("") || jPriezviskotext.toString().equalsIgnoreCase("") || jAdresaText.toString().equalsIgnoreCase("") || jCisloDomu.toString().equalsIgnoreCase("") || jMestoText.toString().equalsIgnoreCase("") || jPSCText.toString().equalsIgnoreCase("") ||jTelefonText.toString().equalsIgnoreCase(""))){
        Jadro jadro = new Jadro();
-       jadro.pridajKontakt(jMenoText.toString(), jPriezviskotext.toString(), jAdresaText.toString(), jCisloDomu.toString(), jMestoText.toString(), jPSCText.toString(), jTelefonText.toString());
-       if(true){
-           jMenoText.setText("");
-           jPriezviskotext.setText("");
-           jAdresaText.setText("");
-           jCisloDomu.setText("");
-           jMestoText.setText("");
-           jPSCText.setText("");
-           jTelefonText.setText("");
-       } 
-    }else {
-        jWarningLabel.setText("Musis vyplnit vsetky policka!");
-    }
-    
+       jadro.pridajKontakt(jTextMeno.getText(),
+               jTextPriezvisko.getText(), jTextAdresa.getText(),
+               jCisloDomu.getText(), jMestoText.getText(),
+               jTextPSC.getText(), jTextTelefon.getText()
+               );
+       
     
 }//GEN-LAST:event_jPridajKontaktButtonActionPerformed
 
-private void jMenoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenoTextActionPerformed
+private void jTextMenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextMenoActionPerformed
 // TODO add your handling code here:
-}//GEN-LAST:event_jMenoTextActionPerformed
+}//GEN-LAST:event_jTextMenoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField jAdresaText;
     private javax.swing.JTextField jCisloDomu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -197,13 +186,14 @@ private void jMenoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jMenoText;
     private javax.swing.JTextField jMestoText;
-    private javax.swing.JTextField jPSCText;
     private javax.swing.JButton jPridajKontaktButton;
-    private javax.swing.JTextField jPriezviskotext;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTelefonText;
+    private javax.swing.JTextField jTextAdresa;
+    private javax.swing.JTextField jTextMeno;
+    private javax.swing.JTextField jTextPSC;
+    private javax.swing.JTextField jTextPriezvisko;
+    private javax.swing.JTextField jTextTelefon;
     private javax.swing.JLabel jWarningLabel;
     // End of variables declaration//GEN-END:variables
 }

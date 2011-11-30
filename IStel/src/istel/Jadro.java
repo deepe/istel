@@ -24,7 +24,7 @@ public class Jadro {
         //uzivatel = new anonym();      
     }
     
-    public void pridajKontakt(String meno, String priezvisko, String adresa, String cisloDomu, String mesto, String psc, String telefon){
+    public void pridajKontakt(String meno, String priezvisko, String ulica, String cisloDomu, String obec, String psc, String telefon){
         
         
          try {
@@ -34,14 +34,13 @@ public class Jadro {
 
 
             PreparedStatement pstm = connection.prepareStatement(DatabaseSetting.QUERY_ADD_INTO_OBEC);
-            pstm.setString(1, mesto);
+            pstm.setString(1, obec);
             pstm.setString(2, psc);
             pstm.execute(); 
             pstm.close();
             
             PreparedStatement pstm2 = connection.prepareStatement(DatabaseSetting.QUERY_ADD_INTO_ADRESA);
-            pstm2.setString(1, adresa);
-           //convert string into t
+            pstm2.setString(1, ulica);
             int cislo = Integer.parseInt(cisloDomu);
             pstm2.setInt(2, cislo);
             pstm2.execute(); 
