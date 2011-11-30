@@ -16,7 +16,6 @@ public class DatabaseSetting {
     /** Create table query */
     public static final String QUERY_CREATE_BEST_TIMES = "CREATE TABLE player_time (name VARCHAR(128) NOT NULL, best_time TIME NOT NULL, field_size VARCHAR(128))";
     /** Insert osobu into osoba */
-    
     public static final String QUERY_ADD_BEST_TIME = "INSERT INTO player_time (name, best_time, field_size) VALUES (?, ?, ?)";
     /** Select best time query */
     public static final String QUERY_SELECT_BEST_TIMES = "SELECT name, best_time, field_size FROM player_time";
