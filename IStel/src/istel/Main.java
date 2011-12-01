@@ -12,7 +12,7 @@ import istel.swingui.SwingUI;
  */
 public class Main {
 
-    public static Jadro jadro = new Jadro();
+    public static Jadro jadro = null;
 
     public static Jadro getJadro() {
         if (jadro == null) {
