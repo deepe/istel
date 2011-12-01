@@ -21,7 +21,9 @@ public class DatabaseSetting {
     public static final String QUERY_SELECT_BEST_TIMES = "SELECT name, best_time, field_size FROM player_time";
     
     
+    
     //---------------------------------
+    public static final String QUERY_SELECT_PRIVILEGIES = "SELECT prava FROM uzivatelia WHERE meno = ? AND heslo = ?";
     public static final String QUERY_ADD_INTO_OBEC = "INSERT INTO obec (obec, psc) VALUES (?, ?)";
     public static final String QUERY_ADD_INTO_ADRESA = "INSERT INTO adresa (id_obec, ulica, cislo_domu) VALUES (LAST_INSERT_ID(), ?, ?)";
     public static final String QUERY_ADD_INTO_OSOBA = "INSERT INTO osoba (id_adresa, meno, priezvisko) VALUES (LAST_INSERT_ID(), ?, ?)";

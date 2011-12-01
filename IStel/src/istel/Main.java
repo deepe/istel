@@ -6,14 +6,24 @@ import istel.swingui.SwingUI;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author t0ki
  */
 public class Main {
-        public static void main(String[] args) {
-        
-            new SwingUI().setVisible(true);
+
+    public static Jadro jadro = new Jadro();
+
+    public static Jadro getJadro() {
+        if (jadro == null) {
+            jadro = new Jadro();
+        }
+        return jadro;
+    }
+
+    public static void main(String[] args) {
+        getJadro();
+        new SwingUI().setVisible(true);
+
     }
 }

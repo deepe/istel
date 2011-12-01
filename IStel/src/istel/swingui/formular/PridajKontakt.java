@@ -11,6 +11,7 @@
  */
 package istel.swingui.formular;
 import istel.Jadro;
+import istel.Main;
 import istel.swingui.IFormObsluha;
 
 /**
@@ -163,8 +164,7 @@ public class PridajKontakt extends javax.swing.JPanel implements IFormObsluha {
     }// </editor-fold>//GEN-END:initComponents
 
 private void jPridajKontaktButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPridajKontaktButtonActionPerformed
-       Jadro jadro = new Jadro();
-       jadro.pridajKontakt(jTextMeno.getText(),
+         Main.jadro.pridajKontakt(jTextMeno.getText(),
                jTextPriezvisko.getText(), jTextAdresa.getText(),
                jCisloDomu.getText(), jMestoText.getText(),
                jTextPSC.getText(), jTextTelefon.getText()
