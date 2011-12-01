@@ -74,11 +74,11 @@ public class Uzivatel {
     }
     
     
-    public boolean jePrihlaseny() {
-        if(prava != 0) {
-            return false;
+    public boolean jeAnonym() {
+        if(prava == 0 || prava == UzivatelPrava.ANONYM) {
+            return true;
         }
-        return true;
+        return false;
     }
     
     

@@ -16,15 +16,18 @@ public class Jadro {
 
     private static Jadro instance;
     private Uzivatel uzivatel;
+    private final long CAS_ODHLASENIA = 5l * 60l * 1000l;
+    private long poslednaAktivita;
 
     //private Uzivatel uzivatel;
     public Jadro() {
         instance = this;
-        uzivatel = new Uzivatel();
+        uzivatel = new Uzivatel(); //bezparametricky kon. je anonym
+        poslednaAktivita();
     }
 
     public void pridajKontakt(String meno, String priezvisko, String ulica, String cisloDomu, String obec, String psc, String telefon) {
-
+        poslednaAktivita();
         if (uzivatel.jeObsluha()) {
 
             try {
@@ -67,6 +70,16 @@ public class Jadro {
 
     public void odhlasit() {
         this.uzivatel = new Uzivatel();
+    }
+    
+    private void poslednaAktivita() {
+        this.poslednaAktivita = System.currentTimeMillis();
+    }
+    
+    public void skontrolujAktivitu() {
+        if(System.currentTimeMillis() - poslednaAktivita > CAS_ODHLASENIA)  {
+            odhlasit();
+        }
     }
     
     public Jadro getInstance() {
