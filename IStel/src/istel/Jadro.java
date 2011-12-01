@@ -7,6 +7,8 @@ package istel;
 import java.sql.*;
 import istel.DatabaseSetting;
 import istel.jadro.Uzivatel;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,7 +18,7 @@ public class Jadro {
 
     private static Jadro instance;
     private Uzivatel uzivatel;
-    private final long CAS_ODHLASENIA = 5l * 60l * 1000l;
+    private final long CAS_ODHLASENIA = 300000L; //v milisekundach
     private long poslednaAktivita;
 
     //private Uzivatel uzivatel;
@@ -35,7 +37,7 @@ public class Jadro {
                 Connection connection = DriverManager.getConnection(DatabaseSetting.URL,
                         DatabaseSetting.USER, DatabaseSetting.PASSWORD);
 
-
+                
                 PreparedStatement pstm = connection.prepareStatement(DatabaseSetting.QUERY_ADD_INTO_OBEC);
                 pstm.setString(1, obec);
                 pstm.setString(2, psc);
@@ -67,6 +69,26 @@ public class Jadro {
             }
         }
     }
+    
+    public ResultSet vyhladajKontakt(){
+        try {
+            Class.forName(DatabaseSetting.DRIVER_CLASS);
+                    Connection connection = DriverManager.getConnection(DatabaseSetting.URL,
+                            DatabaseSetting.USER, DatabaseSetting.PASSWORD);
+        Statement statement = connection.createStatement();
+        ResultSet result = statement.executeQuery(DatabaseSetting.QUERY_SELECT_VYHLADAJ);
+        statement.close();
+        connection.close();        
+        
+        return result;
+        } catch (SQLException ex) {
+            Logger.getLogger(Jadro.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Jadro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+   
 
     public void odhlasit() {
         this.uzivatel = new Uzivatel();
