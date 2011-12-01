@@ -58,7 +58,7 @@ public class Jadro {
                 PreparedStatement pstm4 = connection.prepareStatement(DatabaseSetting.QUERY_ADD_INTO_CISLO);
                 pstm4.setString(1, telefon);
                 pstm4.execute();
-                pstm4.close();
+                pstm4.close(); 
 
                 connection.close();
             } catch (Exception e) {
@@ -75,14 +75,16 @@ public class Jadro {
                 Connection connection = DriverManager.getConnection(DatabaseSetting.URL,
                         DatabaseSetting.USER, DatabaseSetting.PASSWORD);
 
-
+                String delete_cislo = "delete * from cislo where tel_cislo LIKE '"+telefon+"'";
+                String deleteUser = "delete * from osoba where meno like "+meno+"and priezvisko like "+priezvisko;
                 Statement pstm = connection.createStatement();
-              //  pstm.executeQuery("DELETE from")
+                pstm.executeUpdate(delete_cislo);
+                pstm.execute(deleteUser);
                 pstm.close();
 
                 connection.close();
             } catch (Exception e) {
-                System.out.println("Nepodarilo sa vlozit novy kontakt do databazy "
+                System.out.println("Nepodarilo sa vymazat kontakt "
                         + e.getMessage());
             }
         
