@@ -151,16 +151,16 @@ public class SwingUI extends javax.swing.JFrame {
     //tato trieda sa bude spustat po kazom evente v kazom buttone, aby sa zistilo ze ayk default skyn sa ma zobrazit
     private void initCustomComponents() {
 
-        if (Main.getJadro().getUzivatel().jeAnonym()) {
-            //toto je prihlaseny anonymny uzivatel
-            anonymnyPouzivateMenu();
-
-        } else if (Main.getJadro().getUzivatel().jeObsluha()) {
+        if (Main.getJadro().getUzivatel().jeObsluha()) {
             //toto je prihlasena obsluha
             obsluhaPouzivatelMenu();
         } else if (Main.getJadro().getUzivatel().jeAdministrator()) {
             //toto je prihlaseny admin
             adminPouzivatelMenu();
+        } else if (Main.getJadro().getUzivatel().jeAnonym()) {
+            //toto je prihlaseny anonymny uzivatel
+            anonymnyPouzivateMenu();
+
         }
 
     }
