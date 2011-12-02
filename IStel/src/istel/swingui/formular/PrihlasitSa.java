@@ -43,6 +43,7 @@ public class PrihlasitSa extends javax.swing.JPanel implements IFormObsluha,KeyL
         jButton1 = new javax.swing.JButton();
         jLabelChyba = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jLabelKladka = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(550, 400));
 
@@ -68,6 +69,9 @@ public class PrihlasitSa extends javax.swing.JPanel implements IFormObsluha,KeyL
 
         jPasswordField1.setName("jPasswordField1"); // NOI18N
 
+        jLabelKladka.setIcon(new javax.swing.ImageIcon(getClass().getResource("/obrazky/lock.png"))); // NOI18N
+        jLabelKladka.setName("jLabelKladka"); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -75,8 +79,10 @@ public class PrihlasitSa extends javax.swing.JPanel implements IFormObsluha,KeyL
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(104, 104, 104)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2))
+                    .addComponent(jLabelKladka))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabelChyba, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -97,10 +103,13 @@ public class PrihlasitSa extends javax.swing.JPanel implements IFormObsluha,KeyL
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelChyba)
-                .addContainerGap(268, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelChyba))
+                    .addComponent(jLabelKladka))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -114,6 +123,7 @@ public class PrihlasitSa extends javax.swing.JPanel implements IFormObsluha,KeyL
            jPasswordField1.setVisible(false);
            jTextMeno.setVisible(false);
            jLabelChyba.setVisible(false);
+           jLabelKladka.setVisible(false);
        } else { 
            jLabelChyba.setText("Nepodarilo sa overit uzivatela!");
        }
@@ -124,6 +134,7 @@ public class PrihlasitSa extends javax.swing.JPanel implements IFormObsluha,KeyL
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelChyba;
+    private javax.swing.JLabel jLabelKladka;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextMeno;
     // End of variables declaration//GEN-END:variables

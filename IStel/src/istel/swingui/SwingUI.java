@@ -244,7 +244,7 @@ public class SwingUI extends javax.swing.JFrame {
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel1Layout.createSequentialGroup().addComponent(buttonPrihlasenie).addContainerGap(12, Short.MAX_VALUE)));
         //do spodneho panelu najeb formular na vytvorenie
         //stale volat nakonci pack();
-        pack();
+        //pack();
     }
 
     public void obsluhaPouzivatelMenu() {

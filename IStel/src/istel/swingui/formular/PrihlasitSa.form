@@ -24,8 +24,11 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="jLabel1" alignment="1" max="32767" attributes="1"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jLabelKladka" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -52,10 +55,15 @@
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jLabelChyba" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="268" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jLabelChyba" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jLabelKladka" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="171" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -99,6 +107,14 @@
     <Component class="javax.swing.JPasswordField" name="jPasswordField1">
       <Properties>
         <Property name="name" type="java.lang.String" value="jPasswordField1" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelKladka">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" noResource="true" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/obrazky/lock.png"/>
+        </Property>
+        <Property name="name" type="java.lang.String" value="jLabelKladka" noResource="true"/>
       </Properties>
     </Component>
   </SubComponents>
