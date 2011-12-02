@@ -13,7 +13,7 @@ public class DatabaseSetting {
     /** Password to database */
     public static final String PASSWORD = "kongo";
 
-    public static final String QUERY_SELECT_VYHLADAJ = "SELECT priezvisko,meno,tel_cislo,ulica,obec,psc from v_vyhladaj WHERE priezvisko like '%?%' OR meno like '%?%'";
+    public static final String QUERY_SELECT_VYHLADAJ = "SELECT meno,priezvisko,tel_cislo,ulica,cislo_domu,obec,psc from v_vyhladaj WHERE meno like ? OR priezvisko like ? OR obec like ? OR psc like ?";
     public static final String QUERY_SELECT_VYHLADAJ_TEST = "SELECT priezvisko,meno,tel_cislo,ulica,cislo_domu,obec,psc from v_vyhladaj";
     
     

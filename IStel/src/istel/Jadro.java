@@ -70,15 +70,23 @@ public class Jadro {
         
     }
     
-    public ResultSet vyhladajKontakt(){
+    public ResultSet vyhladajKontakt(String meno, String priezvisko, String obec, String psc){
         try {
 
             Class.forName(DatabaseSetting.DRIVER_CLASS);
                     Connection connection = DriverManager.getConnection(DatabaseSetting.URL,
                             DatabaseSetting.USER, DatabaseSetting.PASSWORD);
-        Statement statement = connection.createStatement();
-        ResultSet result = statement.executeQuery(DatabaseSetting.QUERY_SELECT_VYHLADAJ_TEST);
-                
+        PreparedStatement statement = connection.prepareStatement(DatabaseSetting.QUERY_SELECT_VYHLADAJ);
+        
+        statement.setString(1, meno );
+        statement.setString(2, priezvisko );
+        statement.setString(3, obec );
+        statement.setString(4, psc );
+        
+        
+        
+        ResultSet result = statement.executeQuery();
+        
         
         return result;
         } catch (SQLException ex) {
