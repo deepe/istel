@@ -164,12 +164,17 @@ public class PridajKontakt extends javax.swing.JPanel implements IFormObsluha {
     }// </editor-fold>//GEN-END:initComponents
 
 private void jPridajKontaktButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPridajKontaktButtonActionPerformed
-         Main.jadro.pridajKontakt(jTextMeno.getText(),
+   
+    if(!jTextMeno.getText().equals("") && !jTextPriezvisko.getText().equalsIgnoreCase("") && (!jTextAdresa.getText().equalsIgnoreCase("") )&& !jCisloDomu.getText().equalsIgnoreCase("") && !jTextPSC.getText().equalsIgnoreCase("") && !jMestoText.getText().equalsIgnoreCase("") && !jTextTelefon.getText().equalsIgnoreCase("")){
+    Main.jadro.pridajKontakt(jTextMeno.getText(),
                jTextPriezvisko.getText(), jTextAdresa.getText(),
                jCisloDomu.getText(), jMestoText.getText(),
                jTextPSC.getText(), jTextTelefon.getText()
                );
-       
+               jWarningLabel.setText("");
+    }else{
+        jWarningLabel.setText("Vsetky polozky su povinne!");
+    }
     
 }//GEN-LAST:event_jPridajKontaktButtonActionPerformed
 

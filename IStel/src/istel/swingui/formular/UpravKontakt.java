@@ -10,6 +10,8 @@
  */
 package istel.swingui.formular;
 
+import istel.Jadro;
+
 /**
  *
  * @author t0ki
@@ -33,20 +35,194 @@ public class UpravKontakt extends javax.swing.JPanel {
         list1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : ((javax.persistence.Query)null).getResultList();
         entityManager1 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory(null).createEntityManager();
         query1 = java.beans.Beans.isDesignTime() ? null : ((javax.persistence.EntityManager)null).createQuery("");
+        jLabel4 = new javax.swing.JLabel();
+        jTextMeno = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jTextPriezvisko = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextAdresa = new javax.swing.JTextField();
+        jMestoText = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jTextPSC = new javax.swing.JTextField();
+        jTextTelefon = new javax.swing.JTextField();
+        jPridajKontaktButton = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jWarningLabel = new javax.swing.JLabel();
+        jCisloDomu = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+
+        jLabel4.setText("Mesto:");
+        jLabel4.setName("jLabel4"); // NOI18N
+
+        jTextMeno.setName("jTextMeno"); // NOI18N
+        jTextMeno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextMenoActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Priezvisko:");
+        jLabel2.setName("jLabel2"); // NOI18N
+
+        jTextPriezvisko.setName("jTextPriezvisko"); // NOI18N
+
+        jLabel3.setText("Adresa:");
+        jLabel3.setName("jLabel3"); // NOI18N
+
+        jTextAdresa.setName("jTextAdresa"); // NOI18N
+
+        jMestoText.setName("jMestoText"); // NOI18N
+
+        jLabel1.setText("Meno:");
+        jLabel1.setName("jLabel1"); // NOI18N
+
+        jTextPSC.setName("jTextPSC"); // NOI18N
+
+        jTextTelefon.setName("jTextTelefon"); // NOI18N
+
+        jPridajKontaktButton.setText("Uprav kontakt");
+        jPridajKontaktButton.setName("jPridajKontaktButton"); // NOI18N
+        jPridajKontaktButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPridajKontaktButtonActionPerformed(evt);
+            }
+        });
+
+        jSeparator1.setName("jSeparator1"); // NOI18N
+
+        jLabel6.setText("Tel. cislo:");
+        jLabel6.setName("jLabel6"); // NOI18N
+
+        jLabel5.setText("PSC:");
+        jLabel5.setName("jLabel5"); // NOI18N
+
+        jWarningLabel.setName("jWarningLabel"); // NOI18N
+
+        jCisloDomu.setName("jCisloDomu"); // NOI18N
+
+        jLabel7.setText("C. domu:");
+        jLabel7.setName("jLabel7"); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel4))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jMestoText, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+                                    .addComponent(jTextPSC, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+                                    .addComponent(jTextTelefon, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jWarningLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addComponent(jPridajKontaktButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextPriezvisko, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                            .addComponent(jTextMeno, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                            .addComponent(jTextAdresa, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                            .addComponent(jCisloDomu, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 255, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextMeno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextPriezvisko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextAdresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jCisloDomu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jMestoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTextPSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jTextTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPridajKontaktButton)
+                    .addComponent(jWarningLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+private void jTextMenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextMenoActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jTextMenoActionPerformed
+
+private void jPridajKontaktButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPridajKontaktButtonActionPerformed
+       Jadro jadro = new Jadro();
+//       jadro.pridajKontakt(jTextMeno.getText(),
+//               jTextPriezvisko.getText(), jTextAdresa.getText(),
+//               jCisloDomu.getText(), jMestoText.getText(),
+//               jTextPSC.getText(), jTextTelefon.getText()
+//               );
+         jWarningLabel.setText("Kontakt upraveny");
+    
+}//GEN-LAST:event_jPridajKontaktButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.persistence.EntityManager entityManager1;
+    private javax.swing.JTextField jCisloDomu;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField jMestoText;
+    private javax.swing.JButton jPridajKontaktButton;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTextAdresa;
+    private javax.swing.JTextField jTextMeno;
+    private javax.swing.JTextField jTextPSC;
+    private javax.swing.JTextField jTextPriezvisko;
+    private javax.swing.JTextField jTextTelefon;
+    private javax.swing.JLabel jWarningLabel;
     private java.util.List list1;
     private javax.persistence.Query query1;
     // End of variables declaration//GEN-END:variables

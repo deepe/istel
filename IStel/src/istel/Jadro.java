@@ -30,7 +30,7 @@ public class Jadro {
 
     public void pridajKontakt(String meno, String priezvisko, String ulica, String cisloDomu, String obec, String psc, String telefon) {
         poslednaAktivita();
-        if (uzivatel.jeObsluha()) {
+        if (getUzivatel().jeObsluha()) {
 
             try {
                 Class.forName(DatabaseSetting.DRIVER_CLASS);
@@ -106,5 +106,12 @@ public class Jadro {
     
     public Jadro getInstance() {
         return instance;
+    }
+
+    /**
+     * @return the uzivatel
+     */
+    public Uzivatel getUzivatel() {
+        return uzivatel;
     }
 }

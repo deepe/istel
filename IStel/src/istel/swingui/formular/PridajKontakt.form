@@ -21,7 +21,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jSeparator1" alignment="0" pref="368" max="32767" attributes="0"/>
+                          <Component id="jSeparator1" alignment="0" pref="389" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -31,9 +31,9 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jMestoText" alignment="0" pref="278" max="32767" attributes="0"/>
-                                  <Component id="jTextPSC" alignment="0" pref="278" max="32767" attributes="0"/>
-                                  <Component id="jTextTelefon" alignment="0" pref="278" max="32767" attributes="0"/>
+                                  <Component id="jMestoText" alignment="0" pref="299" max="32767" attributes="0"/>
+                                  <Component id="jTextPSC" alignment="0" pref="299" max="32767" attributes="0"/>
+                                  <Component id="jTextTelefon" alignment="0" pref="299" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -54,10 +54,10 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextPriezvisko" pref="274" max="32767" attributes="0"/>
-                          <Component id="jTextMeno" alignment="0" pref="274" max="32767" attributes="0"/>
-                          <Component id="jTextAdresa" alignment="0" pref="274" max="32767" attributes="0"/>
-                          <Component id="jCisloDomu" alignment="0" pref="274" max="32767" attributes="0"/>
+                          <Component id="jTextPriezvisko" pref="294" max="32767" attributes="0"/>
+                          <Component id="jTextMeno" alignment="0" pref="294" max="32767" attributes="0"/>
+                          <Component id="jTextAdresa" alignment="0" pref="294" max="32767" attributes="0"/>
+                          <Component id="jCisloDomu" alignment="0" pref="294" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
