@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.EntityManager;
 import javax.swing.table.AbstractTableModel;
 import org.jdesktop.application.Action;
 
@@ -59,7 +60,8 @@ public class VyhladajKontakt extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setPreferredSize(new java.awt.Dimension(489, 370));
+        setMinimumSize(new java.awt.Dimension(580, 500));
+        setPreferredSize(new java.awt.Dimension(680, 500));
         setRequestFocusEnabled(false);
 
         jLabel7.setText("C. domu:");
@@ -128,7 +130,7 @@ public class VyhladajKontakt extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(9, 9, 9)
@@ -141,26 +143,27 @@ public class VyhladajKontakt extends javax.swing.JPanel {
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldMeno, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
-                            .addComponent(jTextFieldAdresa, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
-                            .addComponent(jTextFieldCisloDomu, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
-                            .addComponent(jTextFieldObec, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
-                            .addComponent(jTextFieldPSC, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
-                            .addComponent(jTextFieldTelCislo, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE))
+                            .addComponent(jTextFieldMeno, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
+                            .addComponent(jTextFieldAdresa, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
+                            .addComponent(jTextFieldCisloDomu, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
+                            .addComponent(jTextFieldObec, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
+                            .addComponent(jTextFieldPSC, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
+                            .addComponent(jTextFieldTelCislo, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE))
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(167, 167, 167))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldPriezvisko, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
+                        .addComponent(jTextFieldPriezvisko, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
                         .addContainerGap())))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(248, 248, 248)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(261, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldMeno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -188,11 +191,11 @@ public class VyhladajKontakt extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jTextFieldTelCislo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -234,31 +237,39 @@ private class Tabulka extends AbstractTableModel {
             try {
 //                list = new ArrayList();
 //                while (result.next()) list.add(result.getString(TOOL_TIP_TEXT_KEY));
-//                
+//              
+                int count  = 0;
+                //while(result.next()) count++;
+                result.last();
+                count = result.getRow();                     
                 
-                
-                this.data = new Object[20][8];
+                this.data = new Object[count][8];
                 result.first();
+                //System.out.println(result.getString(1));
+                //System.out.println();
                 //result.previous();
-               // while (result.next())
-                for (int i=0;i<20;i++)
+                //while (result.next())
+                for(int i = 1; i <= count; i++ )
                 {
                     System.out.println(result.getString(1));
-                    this.data[i][0] = result.getString(1);
+                    this.data[result.getRow() -1 ][0] = result.getString(1);
                     System.out.println(result.getString(2));
-                    this.data[i][1] = result.getString(2);
+                    this.data[result.getRow() -1 ][1] = result.getString(2);
                     System.out.println(result.getString(3));
-                    this.data[i][2] = result.getString(3);
+                    this.data[result.getRow() -1 ][2] = result.getString(3);
                     System.out.println(result.getString(4));
-                    this.data[i][3] = result.getString(4);
+                    this.data[result.getRow() -1 ][3] = result.getString(4);
                     System.out.println(result.getString(5));
-                    this.data[i][4] = result.getString(5);
+                    this.data[result.getRow() -1 ][4] = result.getString(5);
                     System.out.println(result.getString(6));
-                    this.data[i][5] = result.getString(6);
+                    this.data[result.getRow() -1 ][5] = result.getString(6);
                     System.out.println(result.getString(7));
-                    this.data[i][6] = result.getString(7);
+                    this.data[result.getRow() -1 ][6] = result.getString(7);
                     
+                    result.next();
                 }
+                
+                System.out.println(getRowCount());
             } catch (SQLException ex) {
                 Logger.getLogger(VyhladajKontakt.class.getName()).log(Level.SEVERE, null, ex);
             }

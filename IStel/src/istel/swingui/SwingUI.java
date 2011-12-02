@@ -134,7 +134,7 @@ public class SwingUI extends javax.swing.JFrame {
         buttonsModifikator();
         initComponents();
         initCustomComponents();
-        jPanelTelo.add(new PridajKontakt());
+        jPanelTelo.add(new VyhladajKontakt());
         jPanelTelo.updateUI();
 
         ActionListener timeListener = new ActionListener() {
@@ -318,7 +318,6 @@ public class SwingUI extends javax.swing.JFrame {
 
     private void zobrazFromular(JPanel panel) {
         jPanelTelo.removeAll();
-        jPanelTelo.setSize(580, 500);
         jPanelTelo.add(panel);
         jPanelTelo.updateUI();
     }
