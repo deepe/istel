@@ -135,12 +135,12 @@ private void jTextMenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
 
 private void jVymazKontaktButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jVymazKontaktButtonActionPerformed
    
-    if(!jTextMeno.getText().equals("") && !jTextPriezvisko.getText().equalsIgnoreCase("") && !jTextTelefon.getText().equalsIgnoreCase("")) {
-              Main.getJadro().zmazKontakt(jTextMeno.getText(), jTextPriezvisko.getText(), jTextTelefon.getText());
-               jWarningLabel.setText("");
-    }else{
-        jWarningLabel.setText("Vsetky polozky su povinne!");
-    }
+//    if(!jTextMeno.getText().equals("") && !jTextPriezvisko.getText().equalsIgnoreCase("") && !jTextTelefon.getText().equalsIgnoreCase("")) {
+//              Main.getJadro().zmazKontakt(jTextMeno.getText(), jTextPriezvisko.getText(), jTextTelefon.getText());
+//               jWarningLabel.setText("");
+//    }else{
+//        jWarningLabel.setText("Vsetky polozky su povinne!");
+//    }
     
 }//GEN-LAST:event_jVymazKontaktButtonActionPerformed
 

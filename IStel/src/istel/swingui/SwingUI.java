@@ -2,6 +2,7 @@ package istel.swingui;
 
 import istel.Main;
 import istel.swingui.formular.PridajKontakt;
+import istel.swingui.formular.VyhladajKontakt;
 import istel.swingui.formular.VymazKontakt;
 import java.awt.event.ActionEvent;
 import java.util.HashSet;
@@ -108,6 +109,7 @@ public class SwingUI extends javax.swing.JFrame {
     
     private VymazKontakt vymazKontakt;
     private PridajKontakt pridajKontakt;
+    private VyhladajKontakt vyhladajKontakt;
 
 
     /** Creates new form SwingUI */
@@ -122,6 +124,7 @@ public class SwingUI extends javax.swing.JFrame {
         
         vymazKontakt = new VymazKontakt();
         pridajKontakt = new PridajKontakt();
+        vyhladajKontakt = new VyhladajKontakt();
         
         buttonsModifikator();
         initComponents();
@@ -200,7 +203,8 @@ public class SwingUI extends javax.swing.JFrame {
         
         if(Main.getJadro().getUzivatel().jeAnonym()){
             //toto je prihlaseny anonymny uzivatel
-            anonymnyPouzivateMenu();
+            //anonymnyPouzivateMenu();
+            obsluhaPouzivatelMenu();
             
         }else if(Main.getJadro().getUzivatel().jeObsluha()){
             //toto je prihlasena obsluha
@@ -335,6 +339,8 @@ public class SwingUI extends javax.swing.JFrame {
         private void hladajKontaktActionPerformed(ActionEvent evt) {
                jPanelTelo.removeAll();
                //pridaj okni na hladanie jPanelTelo.add();
+               jPanelTelo.add(vyhladajKontakt);
+               
                jPanelTelo.updateUI();
                initCustomComponents();
             }

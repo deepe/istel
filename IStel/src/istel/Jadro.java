@@ -30,7 +30,7 @@ public class Jadro {
 
     public void pridajKontakt(String meno, String priezvisko, String ulica, String cisloDomu, String obec, String psc, String telefon) {
         poslednaAktivita();
-        if (getUzivatel().jeObsluha()) {
+        //if (getUzivatel().jeObsluha()) {
 
             try {
                 Class.forName(DatabaseSetting.DRIVER_CLASS);
@@ -67,7 +67,7 @@ public class Jadro {
                 System.out.println("Nepodarilo sa vlozit novy kontakt do databazy "
                         + e.getMessage());
             }
-        }
+        //}
     }
     
     public ResultSet vyhladajKontakt(){
@@ -76,9 +76,8 @@ public class Jadro {
                     Connection connection = DriverManager.getConnection(DatabaseSetting.URL,
                             DatabaseSetting.USER, DatabaseSetting.PASSWORD);
         Statement statement = connection.createStatement();
-        ResultSet result = statement.executeQuery(DatabaseSetting.QUERY_SELECT_VYHLADAJ);
-        statement.close();
-        connection.close();        
+        ResultSet result = statement.executeQuery(DatabaseSetting.QUERY_SELECT_VYHLADAJ_TEST);
+                
         
         return result;
         } catch (SQLException ex) {
@@ -86,9 +85,20 @@ public class Jadro {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Jadro.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+       
         return null;
     }
-   
+    
+    
+    public boolean prihslasitSa(String meno, String heslo) {
+        this.uzivatel = new Uzivatel(meno, heslo);
+        if(uzivatel.jeObsluha() || uzivatel.jeAdministrator()) {
+            return true;
+        }
+        
+        return false;
+    }
 
     public void odhlasit() {
         this.uzivatel = new Uzivatel();

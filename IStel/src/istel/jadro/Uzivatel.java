@@ -38,28 +38,27 @@ public class Uzivatel {
                     DatabaseSetting.USER, DatabaseSetting.PASSWORD);
 
             Statement stm = connection.createStatement();
-            ResultSet rs = stm.executeQuery(DatabaseSetting.QUERY_SELECT_BEST_TIMES);
-
-            if(rs.getFetchSize() == 0) {
-                System.out.println("Uzivatel neexistuje!");
-            } else if(rs.getFetchSize() == 1) {
-                this.prava = Integer.parseInt(rs.getString("prava"));
-            } else {
-                System.out.println("Chyba pri autentifikacii!");
+            ResultSet rs = stm.executeQuery(
+                    "SELECT prava FROM uzivatelia WHERE meno = \"" + meno +
+                    "\" AND heslo = \"" + heslo + "\"");
+            
+            if (rs.next()) {
+                this.prava = rs.getInt(1);
+                System.out.println(prava + System.currentTimeMillis());
             }
-
+            
             rs.close();
             stm.close();
             connection.close();
 
         } catch (Exception e) {
-            System.out.println("Nemozem identifykovat uzivatela");
+            System.out.println("Nemozem identifykovat uzivatela" + e.getLocalizedMessage());
         }
     }
     
     public boolean jeObsluha() {
         vyberPrava();
-        if((prava & UzivatelPrava.OBSLUHA) == 1) {
+        if((prava & UzivatelPrava.OBSLUHA) == UzivatelPrava.OBSLUHA) {
             return true;
         }
         return false;
@@ -67,7 +66,7 @@ public class Uzivatel {
     
     public boolean jeAdministrator() {
         vyberPrava();
-        if((prava & UzivatelPrava.ADMINISTARTOR) == 1) {
+        if((prava & UzivatelPrava.ADMINISTARTOR) == UzivatelPrava.ADMINISTARTOR) {
             return true;
         }
         return false;

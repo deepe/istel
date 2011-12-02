@@ -13,13 +13,8 @@ public class DatabaseSetting {
     /** Password to database */
     public static final String PASSWORD = "kongo";
 
-    /** Create table query */
-    public static final String QUERY_CREATE_BEST_TIMES = "CREATE TABLE player_time (name VARCHAR(128) NOT NULL, best_time TIME NOT NULL, field_size VARCHAR(128))";
-    /** Insert osobu into osoba */
-    public static final String QUERY_ADD_BEST_TIME = "INSERT INTO player_time (name, best_time, field_size) VALUES (?, ?, ?)";
-    /** Select best time query */
-    public static final String QUERY_SELECT_BEST_TIMES = "SELECT name, best_time, field_size FROM player_time";
-    
+    public static final String QUERY_SELECT_VYHLADAJ = "SELECT priezvisko,meno,tel_cislo,ulica,obec,psc from v_vyhladaj WHERE priezvisko like '%?%' OR meno like '%?%'";
+    public static final String QUERY_SELECT_VYHLADAJ_TEST = "SELECT priezvisko,meno,tel_cislo,ulica,cislo_domu,obec,psc from v_vyhladaj";
     
     
     //---------------------------------

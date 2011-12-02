@@ -25,7 +25,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Component id="jWarningLabel" min="-2" pref="215" max="-2" attributes="0"/>
-                      <EmptySpace pref="94" max="32767" attributes="0"/>
+                      <EmptySpace pref="105" max="32767" attributes="0"/>
                       <Component id="jVymazKontaktButton" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -36,15 +36,15 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextPriezvisko" alignment="0" pref="355" max="32767" attributes="0"/>
-                          <Component id="jTextMeno" alignment="0" pref="355" max="32767" attributes="0"/>
+                          <Component id="jTextPriezvisko" alignment="0" pref="365" max="32767" attributes="0"/>
+                          <Component id="jTextMeno" alignment="0" pref="365" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jTextTelefon" pref="355" max="32767" attributes="0"/>
+                      <Component id="jTextTelefon" pref="364" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
