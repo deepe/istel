@@ -60,7 +60,7 @@ public class Jadro {
                 PreparedStatement pstm4 = connection.prepareStatement(DatabaseSetting.QUERY_ADD_INTO_CISLO);
                 pstm4.setString(1, telefon);
                 pstm4.execute();
-                pstm4.close();
+                pstm4.close(); 
 
                 connection.close();
             } catch (Exception e) {
@@ -72,6 +72,7 @@ public class Jadro {
     
     public ResultSet vyhladajKontakt(){
         try {
+<<<<<<< HEAD
             Class.forName(DatabaseSetting.DRIVER_CLASS);
                     Connection connection = DriverManager.getConnection(DatabaseSetting.URL,
                             DatabaseSetting.USER, DatabaseSetting.PASSWORD);
@@ -96,6 +97,24 @@ public class Jadro {
         if(uzivatel.jeObsluha() || uzivatel.jeAdministrator()) {
             return true;
         }
+=======
+                Class.forName(DatabaseSetting.DRIVER_CLASS);
+                Connection connection = DriverManager.getConnection(DatabaseSetting.URL,
+                        DatabaseSetting.USER, DatabaseSetting.PASSWORD);
+
+                String delete_cislo = "delete * from cislo where tel_cislo LIKE '"+telefon+"'";
+                String deleteUser = "delete * from osoba where meno like "+meno+"and priezvisko like "+priezvisko;
+                Statement pstm = connection.createStatement();
+                pstm.executeUpdate(delete_cislo);
+                pstm.execute(deleteUser);
+                pstm.close();
+
+                connection.close();
+            } catch (Exception e) {
+                System.out.println("Nepodarilo sa vymazat kontakt "
+                        + e.getMessage());
+            }
+>>>>>>> 2875bdcd4b8edb1634700cf244bfb4fdf65ce94e
         
         return false;
     }

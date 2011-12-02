@@ -17,8 +17,11 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jSeparator1" alignment="1" pref="373" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator1" pref="450" max="32767" attributes="0"/>
                   </Group>
@@ -30,12 +33,16 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
+=======
+>>>>>>> 2875bdcd4b8edb1634700cf244bfb4fdf65ce94e
                       <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                           <Component id="jTextPriezvisko" alignment="0" pref="365" max="32767" attributes="0"/>
                           <Component id="jTextMeno" alignment="0" pref="365" max="32767" attributes="0"/>
                       </Group>
@@ -46,6 +53,14 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jTextTelefon" pref="364" max="32767" attributes="0"/>
                   </Group>
+=======
+                          <Component id="jTextTelefon" pref="284" max="32767" attributes="0"/>
+                          <Component id="jTextMeno" alignment="0" pref="284" max="32767" attributes="0"/>
+                          <Component id="jTextPriezvisko" alignment="1" pref="284" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="jVymazKontaktButton" alignment="1" min="-2" max="-2" attributes="0"/>
+>>>>>>> 2875bdcd4b8edb1634700cf244bfb4fdf65ce94e
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -53,62 +68,32 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextMeno" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextPriezvisko" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jTextTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
-              <Component id="jSeparator1" min="-2" pref="13" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+              <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jVymazKontaktButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jWarningLabel" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jVymazKontaktButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="jTextPriezvisko">
-      <Properties>
-        <Property name="name" type="java.lang.String" value="jTextPriezvisko" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextMeno">
-      <Properties>
-        <Property name="name" type="java.lang.String" value="jTextMeno" noResource="true"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextMenoActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextTelefon">
-      <Properties>
-        <Property name="name" type="java.lang.String" value="jTextTelefon" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jVymazKontaktButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Zmaz kontakt"/>
-        <Property name="name" type="java.lang.String" value="jVymazKontaktButton" noResource="true"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jVymazKontaktButtonActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Meno:"/>
@@ -121,21 +106,40 @@
         <Property name="name" type="java.lang.String" value="jLabel2" noResource="true"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tel. cislo:"/>
+        <Property name="name" type="java.lang.String" value="jLabel3" noResource="true"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
       <Properties>
         <Property name="name" type="java.lang.String" value="jSeparator1" noResource="true"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jWarningLabel">
+    <Component class="javax.swing.JTextField" name="jTextMeno">
       <Properties>
-        <Property name="name" type="java.lang.String" value="jWarningLabel" noResource="true"/>
+        <Property name="name" type="java.lang.String" value="jTextMeno" noResource="true"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JTextField" name="jTextPriezvisko">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Tel. cislo:"/>
-        <Property name="name" type="java.lang.String" value="jLabel6" noResource="true"/>
+        <Property name="name" type="java.lang.String" value="jTextPriezvisko" noResource="true"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextTelefon">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="jTextTelefon" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jVymazKontaktButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Vymaz kontakt"/>
+        <Property name="name" type="java.lang.String" value="jVymazKontaktButton" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jVymazKontaktButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
