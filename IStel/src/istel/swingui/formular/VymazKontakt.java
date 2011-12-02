@@ -112,7 +112,7 @@ public class VymazKontakt extends javax.swing.JPanel implements IFormObsluha {
     }// </editor-fold>//GEN-END:initComponents
 
 private void jVymazKontaktButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jVymazKontaktButtonActionPerformed
-<<<<<<< HEAD
+
    
 //    if(!jTextMeno.getText().equals("") && !jTextPriezvisko.getText().equalsIgnoreCase("") && !jTextTelefon.getText().equalsIgnoreCase("")) {
 //              Main.getJadro().zmazKontakt(jTextMeno.getText(), jTextPriezvisko.getText(), jTextTelefon.getText());
@@ -121,7 +121,7 @@ private void jVymazKontaktButtonActionPerformed(java.awt.event.ActionEvent evt) 
 //        jWarningLabel.setText("Vsetky polozky su povinne!");
 //    }
     
-=======
+
     if(!jTextMeno.getText().equalsIgnoreCase("") && !jTextPriezvisko.getText().equalsIgnoreCase("") && !jTextTelefon.getText().equalsIgnoreCase("")){
         Main.getJadro().zmazKontakt(jTextMeno.getText(),jTextPriezvisko.getText(),jTextTelefon.getText());
         
@@ -129,7 +129,7 @@ private void jVymazKontaktButtonActionPerformed(java.awt.event.ActionEvent evt) 
     }else {
            System.out.println("vypln vsetko");
     }
->>>>>>> 2875bdcd4b8edb1634700cf244bfb4fdf65ce94e
+
 }//GEN-LAST:event_jVymazKontaktButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

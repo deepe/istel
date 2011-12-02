@@ -2,7 +2,7 @@ package istel.swingui;
 
 import istel.Main;
 import istel.swingui.formular.PridajKontakt;
-import istel.swingui.formular.VyhladajKontakt;
+import istel.swingui.formular.PrihlasitSa;
 import istel.swingui.formular.VymazKontakt;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -106,14 +106,10 @@ public class SwingUI extends javax.swing.JFrame {
     private javax.swing.JButton hladajKontaktButton;
     private javax.swing.JButton pridajObsluhaButton;
     private javax.swing.JButton vymazObsluhaButton;
+    private PrihlasitSa prihlasitSa;
     private VymazKontakt vymazKontakt;
     private PridajKontakt pridajKontakt;
-<<<<<<< HEAD
-    private VyhladajKontakt vyhladajKontakt;
-
-=======
     private Timer timer;
->>>>>>> 2875bdcd4b8edb1634700cf244bfb4fdf65ce94e
 
     /** Creates new form SwingUI */
     public SwingUI() {
@@ -127,16 +123,12 @@ public class SwingUI extends javax.swing.JFrame {
 
         vymazKontakt = new VymazKontakt();
         pridajKontakt = new PridajKontakt();
-<<<<<<< HEAD
-        vyhladajKontakt = new VyhladajKontakt();
-        
-=======
+        prihlasitSa = new PrihlasitSa();
 
->>>>>>> 2875bdcd4b8edb1634700cf244bfb4fdf65ce94e
         buttonsModifikator();
         initComponents();
         initCustomComponents();
-        jPanelTelo.add(new PridajKontakt());
+        jPanelTelo.add(pridajKontakt);
         jPanelTelo.updateUI();
 
         ActionListener timeListener = new ActionListener() {
@@ -235,31 +227,7 @@ public class SwingUI extends javax.swing.JFrame {
         });
 
     }
-<<<<<<< HEAD
-    
-   
-    //tato trieda sa bude spustat po kazom evente v kazom buttone, aby sa zistilo ze ayk default skyn sa ma zobrazit
-    private void initCustomComponents(){
-        
-        if(Main.getJadro().getUzivatel().jeAnonym()){
-            //toto je prihlaseny anonymny uzivatel
-            //anonymnyPouzivateMenu();
-            obsluhaPouzivatelMenu();
-            
-        }else if(Main.getJadro().getUzivatel().jeObsluha()){
-            //toto je prihlasena obsluha
-            obsluhaPouzivatelMenu();
-        }else if(Main.getJadro().getUzivatel().jeAdministrator()) {
-            //toto je prihlaseny admin
-            adminPouzivatelMenu();           
-        }
-        
-   }
-    
-    
-=======
 
->>>>>>> 2875bdcd4b8edb1634700cf244bfb4fdf65ce94e
     //vytvorenie prostredia pre anonymneho uzivatela, buttony a vlozenie do pola :)
     public void anonymnyPouzivateMenu() {
 
@@ -302,61 +270,9 @@ public class SwingUI extends javax.swing.JFrame {
     //event na prihlasenie sa uzivatela
     private void prihlasenieActionPerformed(ActionEvent evt) {
         jPanelTelo.removeAll();
-        // jPanelTelo.add( new PridajKontakt() );
+        jPanelTelo.add( prihlasitSa);
         jPanelTelo.updateUI();
         initCustomComponents();
-<<<<<<< HEAD
-      }
-      
-       //event na odhlasenie sa admina alebo obsluhy
-       private void odhlasenieActionPerformed(ActionEvent evt) {
-           //nastav premennu v jadre na anonyma
-            Main.getJadro().odhlasit();
-            initCustomComponents();
-            jPanelTelo.removeAll();
-            //jPanelTelo.add();
-            jPanelTelo.updateUI();
-            }
-      
-        //event na zavolanie formulara pre pridanie kontaktu
-        private void pridajKontaktActionPerformed(ActionEvent evt) {
-            jPanelTelo.removeAll();
-            jPanelTelo.add(pridajKontakt);
-            jPanelTelo.updateUI();
-            initCustomComponents();
-            }
-        //event na zavolanie formulara pre zmazanie kontaktu
-        private void vymazKontaktActionPerformed(ActionEvent evt) {
-                jPanelTelo.removeAll();
-                jPanelTelo.add(vymazKontakt);   
-                jPanelTelo.updateUI();
-                initCustomComponents();
-            }
-        //event na zavolanie formulara pre hladanie kontaktu
-        private void hladajKontaktActionPerformed(ActionEvent evt) {
-               jPanelTelo.removeAll();
-               //pridaj okni na hladanie jPanelTelo.add();
-               jPanelTelo.add(vyhladajKontakt);
-               
-               jPanelTelo.updateUI();
-               initCustomComponents();
-            }
-        
-        private void pridajObsluhaButtonActionPerformed(ActionEvent evt) {
-                jPanelTelo.removeAll();
-                //pridaj okno na pridanie obsluhy jPanelTelo.add()
-                jPanelTelo.updateUI();
-                initCustomComponents();
-            }
-        
-        private void vymazObsluhaButtonButtonActionPerformed(ActionEvent evt) {
-                jPanelTelo.removeAll();
-                //pridaj okno na zmazanie obsluhy jPanelTelo.add()
-                jPanelTelo.updateUI();
-                initCustomComponents();
-            }
-      //*****************************KONIEC EVENTY TLACITKA**********************************//
-=======
     }
 
     //event na odhlasenie sa admina alebo obsluhy
@@ -407,7 +323,6 @@ public class SwingUI extends javax.swing.JFrame {
         initCustomComponents();
     }
     //*****************************KONIEC EVENTY TLACITKA**********************************//
->>>>>>> 2875bdcd4b8edb1634700cf244bfb4fdf65ce94e
 
     /** This method is called from within the constructor to
      * initialize the form.

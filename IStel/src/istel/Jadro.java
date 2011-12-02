@@ -67,12 +67,12 @@ public class Jadro {
                 System.out.println("Nepodarilo sa vlozit novy kontakt do databazy "
                         + e.getMessage());
             }
-        //}
+        
     }
     
     public ResultSet vyhladajKontakt(){
         try {
-<<<<<<< HEAD
+
             Class.forName(DatabaseSetting.DRIVER_CLASS);
                     Connection connection = DriverManager.getConnection(DatabaseSetting.URL,
                             DatabaseSetting.USER, DatabaseSetting.PASSWORD);
@@ -90,14 +90,11 @@ public class Jadro {
        
         return null;
     }
+
     
-    
-    public boolean prihslasitSa(String meno, String heslo) {
-        this.uzivatel = new Uzivatel(meno, heslo);
-        if(uzivatel.jeObsluha() || uzivatel.jeAdministrator()) {
-            return true;
-        }
-=======
+    public void zmazKontakt(String meno, String priezvisko, String telefon){
+        
+        try {
                 Class.forName(DatabaseSetting.DRIVER_CLASS);
                 Connection connection = DriverManager.getConnection(DatabaseSetting.URL,
                         DatabaseSetting.USER, DatabaseSetting.PASSWORD);
@@ -114,8 +111,15 @@ public class Jadro {
                 System.out.println("Nepodarilo sa vymazat kontakt "
                         + e.getMessage());
             }
->>>>>>> 2875bdcd4b8edb1634700cf244bfb4fdf65ce94e
         
+    }
+    
+    
+    public boolean prihslasitSa(String meno, String heslo) {
+        this.uzivatel = new Uzivatel(meno, heslo);
+        if(uzivatel.jeObsluha() || uzivatel.jeAdministrator()) {
+            return true;
+        }
         return false;
     }
 
