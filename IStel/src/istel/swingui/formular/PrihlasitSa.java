@@ -12,17 +12,20 @@ package istel.swingui.formular;
 
 import istel.Main;
 import istel.swingui.IFormObsluha;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 /**
  *
  * @author t0ki
  */
-public class PrihlasitSa extends javax.swing.JPanel implements IFormObsluha  {
+public class PrihlasitSa extends javax.swing.JPanel implements IFormObsluha,KeyListener  {
 
     /** Creates new form PrihlasitSa */
     public PrihlasitSa() {
         initComponents();
         jLabelChyba.setText("");
+        jPasswordField1.addKeyListener(this);
     }
 
     /** This method is called from within the constructor to
@@ -37,9 +40,9 @@ public class PrihlasitSa extends javax.swing.JPanel implements IFormObsluha  {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextMeno = new javax.swing.JTextField();
-        jTextHeslo = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabelChyba = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setPreferredSize(new java.awt.Dimension(550, 400));
 
@@ -50,8 +53,6 @@ public class PrihlasitSa extends javax.swing.JPanel implements IFormObsluha  {
         jLabel2.setName("jLabel2"); // NOI18N
 
         jTextMeno.setName("jTextMeno"); // NOI18N
-
-        jTextHeslo.setName("jTextHeslo"); // NOI18N
 
         jButton1.setText("Prihlasit sa");
         jButton1.setName("jButton1"); // NOI18N
@@ -65,22 +66,23 @@ public class PrihlasitSa extends javax.swing.JPanel implements IFormObsluha  {
         jLabelChyba.setText("Zle zadane meno alebo heslo!");
         jLabelChyba.setName("jLabelChyba"); // NOI18N
 
+        jPasswordField1.setName("jPasswordField1"); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(200, Short.MAX_VALUE)
+                .addGap(104, 104, 104)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelChyba)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextMeno, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton1)
-                        .addComponent(jTextHeslo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelChyba, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1)
+                    .addComponent(jPasswordField1)
+                    .addComponent(jTextMeno, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -92,26 +94,27 @@ public class PrihlasitSa extends javax.swing.JPanel implements IFormObsluha  {
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextHeslo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelChyba)
-                .addContainerGap(196, Short.MAX_VALUE))
+                .addContainerGap(268, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       if(Main.jadro.prihslasitSa(jTextMeno.getText(), jTextHeslo.getText())) {
+       if(Main.jadro.prihslasitSa(jTextMeno.getText(),
+               jPasswordField1.getText())) {
            jLabelChyba.setText("Penis si uz prihlaseny");
            jButton1.setVisible(false);
            jLabel1.setVisible(false);
            jLabel2.setVisible(false);
-           jTextHeslo.setVisible(false);
+           jPasswordField1.setVisible(false);
            jTextMeno.setVisible(false);
            jLabelChyba.setVisible(false);
-       } else {
+       } else { 
            jLabelChyba.setText("Nepodarilo sa overit uzivatela!");
        }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -121,7 +124,23 @@ public class PrihlasitSa extends javax.swing.JPanel implements IFormObsluha  {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelChyba;
-    private javax.swing.JTextField jTextHeslo;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextMeno;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void keyTyped(KeyEvent ke) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent ke) {
+        int key = ke.getKeyCode();
+        if( key == KeyEvent.VK_ENTER) jButton1.doClick();
+    }
+
+    @Override
+    public void keyReleased(KeyEvent ke) {
+      
+    }
 }

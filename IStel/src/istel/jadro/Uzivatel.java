@@ -44,7 +44,6 @@ public class Uzivatel {
             
             if (rs.next()) {
                 this.prava = rs.getInt(1);
-                System.out.println(prava + System.currentTimeMillis());
             }
             
             rs.close();
@@ -57,7 +56,7 @@ public class Uzivatel {
     }
     
     public boolean jeObsluha() {
-        vyberPrava();
+        //vyberPrava();
         if((prava & UzivatelPrava.OBSLUHA) == UzivatelPrava.OBSLUHA) {
             return true;
         }
@@ -65,7 +64,7 @@ public class Uzivatel {
     }
     
     public boolean jeAdministrator() {
-        vyberPrava();
+        //vyberPrava();
         if((prava & UzivatelPrava.ADMINISTARTOR) == UzivatelPrava.ADMINISTARTOR) {
             return true;
         }

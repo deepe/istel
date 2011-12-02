@@ -3,10 +3,12 @@ package istel.swingui;
 import istel.Main;
 import istel.swingui.formular.PridajKontakt;
 import istel.swingui.formular.PrihlasitSa;
+import istel.swingui.formular.VyhladajKontakt;
 import istel.swingui.formular.VymazKontakt;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashSet;
+import javax.swing.JPanel;
 import javax.swing.Timer;
 
 /*
@@ -138,7 +140,7 @@ public class SwingUI extends javax.swing.JFrame {
                 initCustomComponents();
             }
         };
-        timer = new Timer(100, timeListener);
+        timer = new Timer(2000, timeListener);
         timer.start();
     }
 
@@ -303,10 +305,12 @@ public class SwingUI extends javax.swing.JFrame {
     //event na zavolanie formulara pre hladanie kontaktu
 
     private void hladajKontaktActionPerformed(ActionEvent evt) {
-        jPanelTelo.removeAll();
-        //jPanelTelo.add(vymazKontakt);
-        jPanelTelo.updateUI();
-        initCustomComponents();
+//        jPanelTelo.removeAll();
+//        //jPanelTelo.add(vymazKontakt);
+//        jPanelTelo.updateUI();
+//        initCustomComponents();
+        this.zobrazFromular(new VyhladajKontakt());
+        
     }
 
     private void pridajObsluhaButtonActionPerformed(ActionEvent evt) {
@@ -322,6 +326,22 @@ public class SwingUI extends javax.swing.JFrame {
         jPanelTelo.updateUI();
         initCustomComponents();
     }
+    
+    
+    private void zobrazFromular(JPanel panel){
+    
+    jPanelTelo.removeAll();;
+    
+    jPanelTelo.add(panel);
+    
+    jPanelTelo.updateUI();
+    
+    
+    
+    }
+    
+    
+    
     //*****************************KONIEC EVENTY TLACITKA**********************************//
 
     /** This method is called from within the constructor to
