@@ -24,7 +24,13 @@ public class DatabaseSetting {
     public static final String QUERY_ADD_INTO_OSOBA = "INSERT INTO osoba (id_adresa, meno, priezvisko) VALUES (LAST_INSERT_ID(), ?, ?)";
     public static final String QUERY_ADD_INTO_CISLO = "INSERT INTO cislo (id_osoba, tel_cislo) VALUES (LAST_INSERT_ID(), ?)";
     
+    public static final String QUERY_SELECT_ID_OBEC= "SELECT id_obec FROM obec WHERE obec = ? AND psc = ?";
+    public static final String QUERY_SELECT_ID_ADRESA= "SELECT id_adresa FROM adresa WHERE id_obec = ? AND ulica = ? AND cislo_domu = ?";
+    public static final String QUERY_SELECT_ID_OSOBA= "SELECT id_osoba FROM osoba WHERE iid_adresa = ? AND meno ? AND priezvisko = ?";
     
+    public static final String QUERY_ADD_INTO_ADRESA_WITH_ID_OBEC = "INSERT INTO adresa (ulica, cislo_domu, id_obec) VALUES (?, ?, ?)";
+    public static final String QUERY_ADD_INTO_OSOBA_WITH_ID_ADRESA = "INSERT INTO osoba (meno, priezvisko, id_adresa) VALUES (?, ?, ?)";
+    public static final String QUERY_ADD_INTO_CISLO_WITH_ID_OSOBA = "INSERT INTO cislo (tel_cislo, id_osoba) VALUES (?, ?)";
     
     
     

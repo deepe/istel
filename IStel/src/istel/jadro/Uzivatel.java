@@ -73,7 +73,7 @@ public class Uzivatel {
     
     
     public boolean jeAnonym() {
-        if(prava == 0 || prava == UzivatelPrava.ANONYM) {
+        if(prava == 0) {
             return true;
         }
         return false;

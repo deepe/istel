@@ -1,5 +1,6 @@
 package istel;
 
+import istel.jadro.OdhlasCuvac;
 import istel.swingui.SwingUI;
 
 /*
@@ -23,6 +24,7 @@ public class Main {
 
     public static void main(String[] args) {
         getJadro();
+        new Thread(new OdhlasCuvac()).start();
         new SwingUI().setVisible(true);
 
     }

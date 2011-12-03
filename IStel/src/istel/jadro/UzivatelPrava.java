@@ -10,7 +10,7 @@ package istel.jadro;
  */
 public class UzivatelPrava {
     
-    public static final int ANONYM = 1;
+    public static final int ANONYM = 0;
     public static final int OBSLUHA = 2;
     public static final int ADMINISTARTOR = 4;
     

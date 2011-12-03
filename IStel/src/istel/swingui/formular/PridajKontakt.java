@@ -10,9 +10,9 @@
  * Created on Nov 29, 2011, 10:45:20 PM
  */
 package istel.swingui.formular;
-import istel.Jadro;
 import istel.Main;
 import istel.swingui.IFormObsluha;
+import java.sql.SQLException;
 
 /**
  *
@@ -43,7 +43,7 @@ public class PridajKontakt extends javax.swing.JPanel implements IFormObsluha {
         jTextMeno = new javax.swing.JTextField();
         jTextPriezvisko = new javax.swing.JTextField();
         jTextAdresa = new javax.swing.JTextField();
-        jMestoText = new javax.swing.JTextField();
+        jTextMesto = new javax.swing.JTextField();
         jTextPSC = new javax.swing.JTextField();
         jTextTelefon = new javax.swing.JTextField();
         jPridajKontaktButton = new javax.swing.JButton();
@@ -88,7 +88,7 @@ public class PridajKontakt extends javax.swing.JPanel implements IFormObsluha {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(5, 5, 5)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -97,13 +97,13 @@ public class PridajKontakt extends javax.swing.JPanel implements IFormObsluha {
                                     .addComponent(jLabel4))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jMestoText, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
-                                    .addComponent(jTextPSC, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
-                                    .addComponent(jTextTelefon, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)))))
+                                    .addComponent(jTextMesto, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+                                    .addComponent(jTextPSC, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+                                    .addComponent(jTextTelefon, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jWarningLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                         .addComponent(jPridajKontaktButton))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -114,10 +114,10 @@ public class PridajKontakt extends javax.swing.JPanel implements IFormObsluha {
                             .addComponent(jLabel7))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextPriezvisko, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                            .addComponent(jTextMeno, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                            .addComponent(jTextAdresa, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                            .addComponent(jCisloDomu, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE))))
+                            .addComponent(jTextPriezvisko, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                            .addComponent(jTextMeno, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                            .addComponent(jTextAdresa, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                            .addComponent(jCisloDomu, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -142,7 +142,7 @@ public class PridajKontakt extends javax.swing.JPanel implements IFormObsluha {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jMestoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextMesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -164,13 +164,25 @@ public class PridajKontakt extends javax.swing.JPanel implements IFormObsluha {
     }// </editor-fold>//GEN-END:initComponents
 
 private void jPridajKontaktButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPridajKontaktButtonActionPerformed
-   
-    if(!jTextMeno.getText().equals("") && !jTextPriezvisko.getText().equalsIgnoreCase("") && (!jTextAdresa.getText().equalsIgnoreCase("") )&& !jCisloDomu.getText().equalsIgnoreCase("") && !jTextPSC.getText().equalsIgnoreCase("") && !jMestoText.getText().equalsIgnoreCase("") && !jTextTelefon.getText().equalsIgnoreCase("")){
-    Main.jadro.pridajKontakt(jTextMeno.getText(),
-               jTextPriezvisko.getText(), jTextAdresa.getText(),
-               jCisloDomu.getText(), jMestoText.getText(),
-               jTextPSC.getText(), jTextTelefon.getText()
-               );
+    
+    if(!jTextMeno.getText().equals("") && !jTextPriezvisko.getText().equalsIgnoreCase("")
+            && (!jTextAdresa.getText().equalsIgnoreCase("") )&&
+            !jCisloDomu.getText().equalsIgnoreCase("") &&
+            !jTextPSC.getText().equalsIgnoreCase("") &&
+            !jTextMesto.getText().equalsIgnoreCase("") &&
+            !jTextTelefon.getText().equalsIgnoreCase("")) {
+        
+            try {
+                Main.getJadro().pridajKontakt(jTextMeno.getText(),
+                           jTextPriezvisko.getText(), jTextAdresa.getText(),
+                           jCisloDomu.getText(), jTextMesto.getText(),
+                           jTextPSC.getText(), jTextTelefon.getText()
+                           );
+            } catch (SQLException ex) {
+                jWarningLabel.setText("Nepodarilo sa pripojit k db!");
+            } catch (ClassNotFoundException ex) {
+                jWarningLabel.setText("Nepodarilo sa pripojit k db!");
+            }
                jWarningLabel.setText("");
     }else{
         jWarningLabel.setText("Vsetky polozky su povinne!");
@@ -191,11 +203,11 @@ private void jTextMenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jMestoText;
     private javax.swing.JButton jPridajKontaktButton;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextAdresa;
     private javax.swing.JTextField jTextMeno;
+    private javax.swing.JTextField jTextMesto;
     private javax.swing.JTextField jTextPSC;
     private javax.swing.JTextField jTextPriezvisko;
     private javax.swing.JTextField jTextTelefon;

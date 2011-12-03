@@ -104,12 +104,10 @@ public class SwingUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonOdhlasenie;
     private javax.swing.JButton buttonPridajKonstakt;
     private javax.swing.JButton buttonVymazKonstakt;
-    private javax.swing.JButton buttonHladajKontakt;
+    private javax.swing.JButton buttonVyhladajKontakt;
     private javax.swing.JButton buttonPridajObsluha;
     private javax.swing.JButton buttonVymazObsluha;
-    private PrihlasitSa prihlasitSa;
-    private VymazKontakt vymazKontakt;
-    private PridajKontakt pridajKontakt;
+    private JPanel jPanelPrihlasitSa, jPanelVyhladajKontakt, jPanelVymazKontakt, jPanelPridajKontakt;
     private Timer timer;
 
     /** Creates new form SwingUI */
@@ -122,19 +120,22 @@ public class SwingUI extends javax.swing.JFrame {
         buttonPridajKonstakt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/obrazky/ikona-32-novy.png")));
         buttonVymazKonstakt = new javax.swing.JButton();
         buttonVymazKonstakt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/obrazky/ikona-32-zmaz.png")));
-        buttonHladajKontakt = new javax.swing.JButton();
-        buttonHladajKontakt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/obrazky/ikona-32-vyhladaj.png")));
+        buttonVyhladajKontakt = new javax.swing.JButton();
+        buttonVyhladajKontakt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/obrazky/ikona-32-vyhladaj.png")));
         buttonPridajObsluha = new javax.swing.JButton();
         buttonVymazObsluha = new javax.swing.JButton();
 
-        vymazKontakt = new VymazKontakt();
-        pridajKontakt = new PridajKontakt();
-        prihlasitSa = new PrihlasitSa();
+        jPanelPrihlasitSa = new PrihlasitSa();
+        jPanelVyhladajKontakt = new VyhladajKontakt();
+        jPanelPridajKontakt = new PridajKontakt();
+        jPanelVymazKontakt = new VymazKontakt();
+        
+        
 
         buttonsModifikator();
         initComponents();
         initCustomComponents();
-        jPanelTelo.add(new VyhladajKontakt());
+        jPanelTelo.add(jPanelVyhladajKontakt);
         jPanelTelo.updateUI();
 
         ActionListener timeListener = new ActionListener() {
@@ -150,17 +151,16 @@ public class SwingUI extends javax.swing.JFrame {
 
     //tato trieda sa bude spustat po kazom evente v kazom buttone, aby sa zistilo ze ayk default skyn sa ma zobrazit
     private void initCustomComponents() {
-
-        if (Main.getJadro().getUzivatel().jeObsluha()) {
+        
+        if (Main.getJadro().getUzivatel().jeAnonym()) {
+            //toto je prihlaseny anonymny uzivatel
+            anonymnyPouzivateMenu();
+        } else if (Main.getJadro().getUzivatel().jeObsluha()) {
             //toto je prihlasena obsluha
             obsluhaPouzivatelMenu();
         } else if (Main.getJadro().getUzivatel().jeAdministrator()) {
             //toto je prihlaseny admin
             adminPouzivatelMenu();
-        } else if (Main.getJadro().getUzivatel().jeAnonym()) {
-            //toto je prihlaseny anonymny uzivatel
-            anonymnyPouzivateMenu();
-
         }
 
     }
@@ -205,7 +205,7 @@ public class SwingUI extends javax.swing.JFrame {
 
         //buttonHladajKontakt.setText("Hladaj kontakt");
         //buttonHladajKontakt.setName("hladajKontaktButton");
-        buttonHladajKontakt.addActionListener(new java.awt.event.ActionListener() {
+        buttonVyhladajKontakt.addActionListener(new java.awt.event.ActionListener() {
 
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hladajKontaktActionPerformed(evt);
@@ -251,9 +251,9 @@ public class SwingUI extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanelMenu);
         jPanelMenu.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel1Layout.createSequentialGroup().addContainerGap().addComponent(buttonOdhlasenie).addGap(18, 18, 18).addComponent(buttonPridajKonstakt).addGap(18, 18, 18).addComponent(buttonVymazKonstakt).addGap(18, 18, 18).addComponent(buttonHladajKontakt).addContainerGap(120, Short.MAX_VALUE)));
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel1Layout.createSequentialGroup().addContainerGap().addComponent(buttonOdhlasenie).addGap(18, 18, 18).addComponent(buttonPridajKonstakt).addGap(18, 18, 18).addComponent(buttonVymazKonstakt).addGap(18, 18, 18).addComponent(buttonVyhladajKontakt).addContainerGap(120, Short.MAX_VALUE)));
         jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel1Layout.createSequentialGroup().addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(buttonOdhlasenie).addComponent(buttonPridajKonstakt).addComponent(buttonVymazKonstakt).addComponent(buttonHladajKontakt)).addContainerGap(12, Short.MAX_VALUE)));
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel1Layout.createSequentialGroup().addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(buttonOdhlasenie).addComponent(buttonPridajKonstakt).addComponent(buttonVymazKonstakt).addComponent(buttonVyhladajKontakt)).addContainerGap(12, Short.MAX_VALUE)));
         pack();
     }
 
@@ -281,22 +281,22 @@ public class SwingUI extends javax.swing.JFrame {
     private void odhlasenieActionPerformed(ActionEvent evt) {
         //nastav premennu v jadre na anonyma
         Main.getJadro().odhlasit();
-        this.zobrazFromular(vymazKontakt);
+        this.zobrazFromular(jPanelVyhladajKontakt);
     }
 
     //event na zavolanie formulara pre pridanie kontaktu
     private void pridajKontaktActionPerformed(ActionEvent evt) {
-        this.zobrazFromular(new PridajKontakt());
+        this.zobrazFromular(jPanelPridajKontakt);
     }
     //event na zavolanie formulara pre zmazanie kontaktu
 
     private void vymazKontaktActionPerformed(ActionEvent evt) {
-        this.zobrazFromular(new VymazKontakt());
+        this.zobrazFromular(jPanelVymazKontakt);
     }
     //event na zavolanie formulara pre hladanie kontaktu
 
     private void hladajKontaktActionPerformed(ActionEvent evt) {
-        this.zobrazFromular(new VyhladajKontakt());
+        this.zobrazFromular(jPanelVyhladajKontakt);
 
     }
 
