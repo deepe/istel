@@ -184,6 +184,13 @@ private void jPridajKontaktButtonActionPerformed(java.awt.event.ActionEvent evt)
                 jWarningLabel.setText("Nepodarilo sa pripojit k db!");
             }
                jWarningLabel.setText("");
+               jTextMeno.setText("");
+               jTextPriezvisko.setText("");
+               jTextAdresa.setText("");
+               jTextMesto.setText("");
+               jTextPSC.setText("");
+               jTextTelefon.setText("");
+               jCisloDomu.setText("");
     }else{
         jWarningLabel.setText("Vsetky polozky su povinne!");
     }

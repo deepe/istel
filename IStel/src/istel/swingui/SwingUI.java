@@ -109,13 +109,14 @@ public class SwingUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonVymazObsluha;
     private JPanel jPanelPrihlasitSa, jPanelVyhladajKontakt, jPanelVymazKontakt, jPanelPridajKontakt;
     private Timer timer;
+    private String borderName;
 
     /** Creates new form SwingUI */
     public SwingUI() {
         buttonPrihlasenie = new javax.swing.JButton();
-        //buttonPrihlasenie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/obrazky/system-log-out.png")));
+        buttonPrihlasenie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/obrazky/loginIcon.png")));
         buttonOdhlasenie = new javax.swing.JButton();
-        //buttonOdhlasenie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/obrazky/ikona-32-novy.png")));
+        buttonOdhlasenie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/obrazky/logoutIcon.png")));
         buttonPridajKonstakt = new javax.swing.JButton();
         buttonPridajKonstakt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/obrazky/ikona-32-novy.png")));
         buttonVymazKonstakt = new javax.swing.JButton();
@@ -124,6 +125,7 @@ public class SwingUI extends javax.swing.JFrame {
         buttonVyhladajKontakt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/obrazky/ikona-32-vyhladaj.png")));
         buttonPridajObsluha = new javax.swing.JButton();
         buttonVymazObsluha = new javax.swing.JButton();
+        borderName = "";
 
         jPanelPrihlasitSa = new PrihlasitSa();
         jPanelVyhladajKontakt = new VyhladajKontakt();
@@ -136,6 +138,7 @@ public class SwingUI extends javax.swing.JFrame {
         initComponents();
         initCustomComponents();
         jPanelTelo.add(jPanelVyhladajKontakt);
+        jPanelTelo.setBorder(javax.swing.BorderFactory.createTitledBorder("Hladaj kontakt")); //natvrdo nabite na prvu inicializaciu
         jPanelTelo.updateUI();
 
         ActionListener timeListener = new ActionListener() {
@@ -185,8 +188,8 @@ public class SwingUI extends javax.swing.JFrame {
         });
 
 
-        //buttonPridajKonstakt.setText("Pridaj kontakt");
-        //buttonPridajKonstakt.setName("Pridaj kontakt");
+        buttonPridajKonstakt.setText("Pridaj kontakt");
+        buttonPridajKonstakt.setName("Pridaj kontakt");
         buttonPridajKonstakt.addActionListener(new java.awt.event.ActionListener() {
 
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,8 +197,8 @@ public class SwingUI extends javax.swing.JFrame {
             }
         });
 
-        //buttonVymazKonstakt.setText("Vymaz kontakt");
-        //buttonVymazKonstakt.setName("vymazKontaktButton");
+        buttonVymazKonstakt.setText("Vymaz kontakt");
+        buttonVymazKonstakt.setName("vymazKontaktButton");
         buttonVymazKonstakt.addActionListener(new java.awt.event.ActionListener() {
 
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,8 +206,8 @@ public class SwingUI extends javax.swing.JFrame {
             }
         });
 
-        //buttonHladajKontakt.setText("Hladaj kontakt");
-        //buttonHladajKontakt.setName("hladajKontaktButton");
+        buttonVyhladajKontakt.setText("Hladaj kontakt");
+        buttonVyhladajKontakt.setName("hladajKontaktButton");
         buttonVyhladajKontakt.addActionListener(new java.awt.event.ActionListener() {
 
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,7 +238,7 @@ public class SwingUI extends javax.swing.JFrame {
 
     //vytvorenie prostredia pre anonymneho uzivatela, buttony a vlozenie do pola :)
     public void anonymnyPouzivateMenu() {
-
+        jPanelMenu.removeAll();
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanelMenu);
         jPanelMenu.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -248,22 +251,26 @@ public class SwingUI extends javax.swing.JFrame {
     }
 
     public void obsluhaPouzivatelMenu() {
+        jPanelMenu.removeAll();
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanelMenu);
         jPanelMenu.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel1Layout.createSequentialGroup().addContainerGap().addComponent(buttonOdhlasenie).addGap(18, 18, 18).addComponent(buttonPridajKonstakt).addGap(18, 18, 18).addComponent(buttonVymazKonstakt).addGap(18, 18, 18).addComponent(buttonVyhladajKontakt).addContainerGap(120, Short.MAX_VALUE)));
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel1Layout.createSequentialGroup().addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(buttonOdhlasenie).addComponent(buttonPridajKonstakt).addComponent(buttonVymazKonstakt).addComponent(buttonVyhladajKontakt)).addContainerGap(12, Short.MAX_VALUE)));
+        
         pack();
     }
 
     public void adminPouzivatelMenu() {
+        jPanelMenu.removeAll();
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanelMenu);
         jPanelMenu.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel1Layout.createSequentialGroup().addContainerGap().addComponent(buttonOdhlasenie).addGap(18, 18, 18).addComponent(buttonPridajObsluha).addGap(18, 18, 18).addComponent(buttonVymazObsluha).addContainerGap(236, Short.MAX_VALUE)));
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel1Layout.createSequentialGroup().addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(buttonOdhlasenie).addComponent(buttonPridajObsluha).addComponent(buttonVymazObsluha)).addContainerGap(12, Short.MAX_VALUE)));
+       
         pack();
     }
 
@@ -274,6 +281,7 @@ public class SwingUI extends javax.swing.JFrame {
 //        jPanelTelo.add( prihlasitSa);
 //        jPanelTelo.updateUI();
 //        initCustomComponents();
+        borderName = "Prihlásenie";
         this.zobrazFromular(new PrihlasitSa());
     }
 
@@ -282,20 +290,24 @@ public class SwingUI extends javax.swing.JFrame {
         //nastav premennu v jadre na anonyma
         Main.getJadro().odhlasit();
         this.zobrazFromular(jPanelVyhladajKontakt);
+        borderName = "Hľadaj kontakt";
     }
 
     //event na zavolanie formulara pre pridanie kontaktu
     private void pridajKontaktActionPerformed(ActionEvent evt) {
+        borderName = "Pridaj kontakt";
         this.zobrazFromular(jPanelPridajKontakt);
     }
     //event na zavolanie formulara pre zmazanie kontaktu
 
     private void vymazKontaktActionPerformed(ActionEvent evt) {
+        borderName ="Vymaž kontakt";
         this.zobrazFromular(jPanelVymazKontakt);
     }
     //event na zavolanie formulara pre hladanie kontaktu
 
     private void hladajKontaktActionPerformed(ActionEvent evt) {
+        borderName ="Hľadaj kontakt";
         this.zobrazFromular(jPanelVyhladajKontakt);
 
     }
@@ -320,6 +332,7 @@ public class SwingUI extends javax.swing.JFrame {
         jPanelTelo.removeAll();
         jPanelTelo.add(panel);
         jPanelTelo.updateUI();
+        jPanelTelo.setBorder(javax.swing.BorderFactory.createTitledBorder(borderName));
     }
 
     //*****************************KONIEC EVENTY TLACITKA**********************************//
@@ -365,16 +378,16 @@ public class SwingUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelTelo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
-                    .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanelMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelTelo, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+                .addComponent(jPanelTelo, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 

@@ -76,14 +76,16 @@ public class Jadro {
                 PreparedStatement pstm2;
                 if (id_obec == null) {
                     pstm2 = this.getConnection().prepareStatement(DatabaseSetting.QUERY_ADD_INTO_ADRESA);
+                    pstm2.setString(2, ulica);
+                    pstm2.setString(3,cisloDomu);
+                    
                 } else {
                     // obec je db vkladame novy 
                     pstm2 = this.getConnection().prepareStatement(DatabaseSetting.QUERY_ADD_INTO_ADRESA_WITH_ID_OBEC);
+                    pstm2.setString(1, ulica);
+                    pstm2.setString(2,cisloDomu);
                     pstm2.setString(3, id_obec);
                 }
-                pstm2.setString(1, ulica);
-                int cislo = Integer.parseInt(cisloDomu);
-                pstm2.setInt(2, cislo);
                 pstm2.execute();
                 pstm2.close();
             } catch (Exception e) {
@@ -100,12 +102,14 @@ public class Jadro {
                 PreparedStatement pstm3;
                 if (id_adresa == null) {
                     pstm3 = this.getConnection().prepareStatement(DatabaseSetting.QUERY_ADD_INTO_OSOBA);
+                    pstm3.setString(2, meno);
+                    pstm3.setString(3, priezvisko);
                 } else {
                     pstm3 = this.getConnection().prepareStatement(DatabaseSetting.QUERY_ADD_INTO_OSOBA_WITH_ID_ADRESA);
+                    pstm3.setString(1, meno);
+                    pstm3.setString(2, priezvisko);
                     pstm3.setString(3, id_adresa);
-                }
-                pstm3.setString(1, meno);
-                pstm3.setString(2, priezvisko);
+                }     
                 pstm3.execute();
                 pstm3.close();
             } catch (Exception e) {
@@ -122,11 +126,13 @@ public class Jadro {
                 PreparedStatement pstm4;
                 if (id_osoba == null) {
                     pstm4 = this.getConnection().prepareStatement(DatabaseSetting.QUERY_ADD_INTO_CISLO);
+                    pstm4.setString(2, telefon);
                 } else {
                     pstm4 = this.getConnection().prepareStatement(DatabaseSetting.QUERY_ADD_INTO_CISLO_WITH_ID_OSOBA);
+                    pstm4.setString(1, telefon);
                     pstm4.setString(2, id_osoba);
                 }
-                pstm4.setString(1, telefon);
+                
                 pstm4.execute();
                 pstm4.close();
 
