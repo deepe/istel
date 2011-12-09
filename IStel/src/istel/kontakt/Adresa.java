@@ -16,7 +16,7 @@ public class Adresa {
     
     private String ulica;
     private String cisloDomu;
-    private int id_ulica;
+    private int id_adresa;
     
     public Adresa(String obec, String psc, String ulica, String cisloDommu) {
         this.obec = obec;
@@ -27,7 +27,7 @@ public class Adresa {
     
     public Adresa(int id_obec, String obec, String psc, int id_ulica, String ulica, String cisloDommu) {
         this.id_obec = id_obec;
-        this.id_ulica = id_ulica;
+        this.id_adresa = id_ulica;
         this.obec = obec;
         this.psc = psc;
         this.ulica = ulica;
@@ -42,17 +42,17 @@ public class Adresa {
     }
 
     /**
+     * @return the id_adresa
+     */
+    public int getId_adresa() {
+        return id_adresa;
+    }
+
+    /**
      * @return the id_obec
      */
     public int getId_obec() {
         return id_obec;
-    }
-
-    /**
-     * @return the id_ulica
-     */
-    public int getId_ulica() {
-        return id_ulica;
     }
 
     /**
@@ -75,5 +75,21 @@ public class Adresa {
     public String getUlica() {
         return ulica;
     }
+
+    /**
+     * @param id_adresa the id_adresa to set
+     */
+    public void setId_adresa(int id_adresa) {
+        this.id_adresa = id_adresa;
+    }
+
+    /**
+     * @param id_obec the id_obec to set
+     */
+    public void setId_obec(int id_obec) {
+        this.id_obec = id_obec;
+    }
+
+
     
 }

@@ -21,6 +21,7 @@ public class Kontakt {
     public Kontakt(Osoba osoba, Adresa adresa, Cislo cislo) {
         this.osoba = osoba;
         this.adresa = adresa;
+        this.cisla = new ArrayList<Cislo>();
         this.cisla.add(cislo);
     }
 

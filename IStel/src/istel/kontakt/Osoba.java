@@ -59,5 +59,12 @@ public class Osoba {
     public void setPriezvisko(String priezvisko) {
         this.priezvisko = priezvisko;
     }
-    
+
+    /**
+     * @param id_osoba the id_osoba to set
+     */
+    public void setId_osoba(int id_osoba) {
+        this.id_osoba = id_osoba;
+    }
+   
 }

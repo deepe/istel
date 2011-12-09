@@ -16,9 +16,12 @@ import java.sql.Statement;
  */
 public class Uzivatel {
     
-    String meno;
-    String heslo;
-    int prava  = 0;
+//    String meno;
+//    String heslo;
+//    int prava  = 0;
+    String meno = "t0ki";
+    String heslo = "mandarinka";
+    int prava  = 7;
     
     
     public Uzivatel() {
