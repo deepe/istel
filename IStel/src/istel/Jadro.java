@@ -7,6 +7,7 @@ package istel;
 import java.sql.*;
 import istel.jadro.Uzivatel;
 import istel.kontakt.Kontakt;
+import java.util.ArrayList;
 
 /**
  *
@@ -64,7 +65,7 @@ public class Jadro {
         return false;
     }
 
-    public ResultSet vyhladajKontakt(Kontakt kontakt) {
+    public ArrayList<Kontakt> vyhladajKontakt(Kontakt kontakt) {
 //        poslednaAktivita();
 //        try {
 //            PreparedStatement statement = this.getConnection().prepareStatement(DatabaseSetting.QUERY_SELECT_VYHLADAJ);
@@ -88,6 +89,7 @@ public class Jadro {
         } else {
             System.out.println("Nie si obsluha!");
         }
+        return null;
     }
 
     public boolean zmazKontakt(Kontakt kontakt) {
