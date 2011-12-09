@@ -10,7 +10,6 @@
  */
 package istel.swingui.formular;
 
-import istel.Jadro;
 import istel.Main;
 import istel.kontakt.Adresa;
 import istel.kontakt.Cislo;
@@ -22,10 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.crypto.Cipher;
-import javax.persistence.EntityManager;
 import javax.swing.table.AbstractTableModel;
-import org.jdesktop.application.Action;
 
 /**
  *
@@ -33,9 +29,11 @@ import org.jdesktop.application.Action;
  */
 public class VyhladajKontakt extends javax.swing.JPanel {
 
+    private String titulok = "Hľadaj kontakt";
     /** Creates new form VyhladajKontakt */
     public VyhladajKontakt() {
         initComponents();
+        jLabelChyba.setVisible(false);
     }
 
     /** This method is called from within the constructor to
@@ -55,9 +53,10 @@ public class VyhladajKontakt extends javax.swing.JPanel {
         jTextFieldMeno = new javax.swing.JTextField();
         jTextFieldObec = new javax.swing.JTextField();
         jTextFieldPSC = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButtonVyhladat = new javax.swing.JButton();
+        jLabelChyba = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(580, 500));
         setPreferredSize(new java.awt.Dimension(680, 500));
@@ -83,15 +82,6 @@ public class VyhladajKontakt extends javax.swing.JPanel {
 
         jTextFieldPSC.setName("jTextFieldPSC"); // NOI18N
 
-        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance().getContext().getActionMap(VyhladajKontakt.class, this);
-        jButton1.setAction(actionMap.get("Vyhladat")); // NOI18N
-        jButton1.setName("jButton1"); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         jScrollPane1.setName("jScrollPane1"); // NOI18N
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -105,92 +95,113 @@ public class VyhladajKontakt extends javax.swing.JPanel {
         jTable1.setName("jTable1"); // NOI18N
         jScrollPane1.setViewportView(jTable1);
 
+        jButtonVyhladat.setText("Vyhľadať");
+        jButtonVyhladat.setName("jButtonVyhladat"); // NOI18N
+        jButtonVyhladat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVyhladatActionPerformed(evt);
+            }
+        });
+
+        jLabelChyba.setForeground(new java.awt.Color(255, 0, 0));
+        jLabelChyba.setText("Aspoň jeden údaj je povinný");
+        jLabelChyba.setName("jLabelChyba"); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(248, 248, 248)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4)))
+                                .addContainerGap()
+                                .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(jLabel1)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldMeno, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
-                            .addComponent(jTextFieldObec, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
-                            .addComponent(jTextFieldPriezvisko, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
-                            .addComponent(jTextFieldPSC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE))))
+                                .addContainerGap()
+                                .addComponent(jLabel2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel4))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel5)))
+                        .addGap(18, 47, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTextFieldPSC)
+                            .addComponent(jTextFieldPriezvisko)
+                            .addComponent(jTextFieldMeno, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
+                            .addComponent(jTextFieldObec)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jButtonVyhladat)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabelChyba)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldMeno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldPriezvisko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldObec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextFieldPSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                .addContainerGap())
+                    .addComponent(jTextFieldPSC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonVyhladat)
+                    .addComponent(jLabelChyba))
+                .addGap(12, 12, 12)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
+    private void jButtonVyhladatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVyhladatActionPerformed
         String meno = jTextFieldMeno.getText().trim();
         String priezvisko = jTextFieldPriezvisko.getText().trim();
         String obec = jTextFieldObec.getText().trim();
         String psc = jTextFieldPSC.getText().trim();
-        
-        //deepe uprava
-        Adresa adresa = new Adresa(obec, psc, null, null);
-        Cislo cislo = new Cislo(null);
-        Osoba osoba = new Osoba(meno, priezvisko);
-        Kontakt kontakt = new Kontakt(osoba, adresa, cislo);
-        
-        //TODO: Upravit tabulku a to pojde dalej
-        ArrayList<Kontakt> kontakty = Main.jadro.vyhladajKontakt(kontakt);
-       // Tabulka tabulka = new Tabulka(kontakty);
-       // jTable1.setModel(tabulka);
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
 
+
+        if (meno.equalsIgnoreCase("")
+                && priezvisko.equalsIgnoreCase("")
+                && obec.equalsIgnoreCase("")
+                && psc.equalsIgnoreCase("")) {
+            jLabelChyba.setVisible(true);
+        } else {
+            jLabelChyba.setVisible(false);
+            //deepe uprava
+            Adresa adresa = new Adresa(obec, psc, null, null);
+            Cislo cislo = new Cislo(null);
+            Osoba osoba = new Osoba(meno, priezvisko);
+            Kontakt kontakt = new Kontakt(osoba, adresa, cislo);
+
+            Tabulka tabulka = new Tabulka(Main.jadro.vyhladajKontakt(kontakt));
+            jTable1.setModel(tabulka);
+        }
+    }//GEN-LAST:event_jButtonVyhladatActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonVyhladat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelChyba;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextFieldMeno;
@@ -199,74 +210,52 @@ public class VyhladajKontakt extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldPriezvisko;
     // End of variables declaration//GEN-END:variables
 
-private class Tabulka extends AbstractTableModel {
- 
+    /**
+     * @return the titulok
+     */
+    public String getTitulok() {
+        return titulok;
+    }
+
+    private class Tabulka extends AbstractTableModel {
+
         private Object[][] data;
-        protected String[] columnNames = {"Priezvisko", "Meno", "Tel.cislo" , "Ulica" ,"Cislo domu", "Obec" , "PSC"};
-        private List list;
-        public Tabulka(ResultSet result) {
-            try {
-//                list = new ArrayList();
-//                while (result.next()) list.add(result.getString(TOOL_TIP_TEXT_KEY));
-//              
-                int count  = 0;
-                //while(result.next()) count++;
-                result.last();
-                count = result.getRow();                     
-                
-                this.data = new Object[count][8];
-                result.first();
-                //System.out.println(result.getString(1));
-                //System.out.println();
-                //result.previous();
-                //while (result.next())
-                for(int i = 1; i <= count; i++ )
-                {
-                    System.out.println(result.getString(1));
-                    this.data[result.getRow() -1 ][0] = result.getString(1);
-                    System.out.println(result.getString(2));
-                    this.data[result.getRow() -1 ][1] = result.getString(2);
-                    System.out.println(result.getString(3));
-                    this.data[result.getRow() -1 ][2] = result.getString(3);
-                    System.out.println(result.getString(4));
-                    this.data[result.getRow() -1 ][3] = result.getString(4);
-                    System.out.println(result.getString(5));
-                    this.data[result.getRow() -1 ][4] = result.getString(5);
-                    System.out.println(result.getString(6));
-                    this.data[result.getRow() -1 ][5] = result.getString(6);
-                    System.out.println(result.getString(7));
-                    this.data[result.getRow() -1 ][6] = result.getString(7);
-                    
-                    result.next();
-                }
-                
-                System.out.println(getRowCount());
-            } catch (SQLException ex) {
-                Logger.getLogger(VyhladajKontakt.class.getName()).log(Level.SEVERE, null, ex);
+        protected String[] columnNames = {"Priezvisko", "Meno", "Telefonné čislo", "Ulica", "Číslo domu", "Obec", "PSC"};
+        private ArrayList<Kontakt> kontaky;
+
+        public Tabulka(ArrayList<Kontakt> kontaky) {
+            this.kontaky = kontaky;
+            this.data = new Object[kontaky.size()][7];
+            for (int index = 0; index < kontaky.size(); index++) {
+                this.data[index][0] = kontaky.get(index).getOsoba().getPriezvisko();
+                this.data[index][1] = kontaky.get(index).getOsoba().getMeno();
+                this.data[index][2] = kontaky.get(index).getCisla().get(0).getCislo();
+                this.data[index][3] = kontaky.get(index).getAdresa().getUlica();
+                this.data[index][4] = kontaky.get(index).getAdresa().getCisloDomu();
+                this.data[index][5] = kontaky.get(index).getAdresa().getObec();
+                this.data[index][6] = kontaky.get(index).getAdresa().getPsc();
             }
+
         }
- 
+
         @Override
         public int getRowCount() {
             return data.length;
         }
- 
+
         @Override
         public int getColumnCount() {
             return columnNames.length;
         }
- 
+
         @Override
         public String getColumnName(int column) {
             return columnNames[column];
         }
- 
+
         @Override
         public Object getValueAt(int row, int column) {
             return data[row][column];
         }
     }
-
-  
-
 }
