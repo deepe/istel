@@ -7,7 +7,10 @@ package istel;
 
 
 import istel.jadro.Uzivatel;
+import istel.kontakt.Adresa;
+import istel.kontakt.Cislo;
 import istel.kontakt.Kontakt;
+import istel.kontakt.Osoba;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -131,29 +134,38 @@ public class Jadro {
     }
 
     public ArrayList<Kontakt> vyhladajKontakt(Kontakt kontakt) {
-//        poslednaAktivita();
-//        try {
-//            PreparedStatement statement = this.getConnection().prepareStatement(DatabaseSetting.QUERY_SELECT_VYHLADAJ);
-//
-//            statement.setString(1, meno);
-//            statement.setString(2, priezvisko);
-//            statement.setString(3, obec);
-//            statement.setString(4, psc);
-//
-//            ResultSet result = statement.executeQuery();
-//            return result;
-//        } catch (SQLException ex) {
-//            System.out.println(ex.getMessage());
-//        }
-//
-//
-//        return null;
+        Kontakt kontaktDoArray = null;
+        ArrayList<Kontakt> odosliKontakty = new ArrayList<Kontakt>();
+        
+        poslednaAktivita();
+        try {
+            PreparedStatement statement = this.getConnection().prepareStatement(DatabaseSetting.QUERY_SELECT_VYHLADAJ);
+
+            statement.setString(1, kontakt.getOsoba().getMeno());
+            statement.setString(2, kontakt.getOsoba().getPriezvisko());
+            statement.setString(3, kontakt.getAdresa().getObec());
+            statement.setString(4, kontakt.getAdresa().getPsc());
+
+            ResultSet result = statement.executeQuery();
+            while(result.next()){
+                Osoba osoba = new Osoba(result.getString("meno"),result.getString("priezvisko"));
+                Adresa adresa = new Adresa(result.getString("obec"), result.getString("psc"), result.getString("ulica"), result.getString("cislo_domu"));
+                Cislo cislo = new Cislo(result.getString("tel_cislo"));
+                odosliKontakty.add(new Kontakt(osoba, adresa, cislo));
+            }
+            //return result;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+
+        //return null;
         poslednaAktivita();
         if (getUzivatel().jeObsluha()) {
         } else {
             System.out.println("Nie si obsluha!");
         }
-        return null;
+        return odosliKontakty;
     }
 
     public boolean zmazKontakt(Kontakt kontakt) {

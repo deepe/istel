@@ -90,6 +90,34 @@ public class Adresa {
         this.id_obec = id_obec;
     }
 
+    /**
+     * @param obec the obec to set
+     */
+    public void setObec(String obec) {
+        this.obec = obec;
+    }
+
+    /**
+     * @param psc the psc to set
+     */
+    public void setPsc(String psc) {
+        this.psc = psc;
+    }
+
+    /**
+     * @param ulica the ulica to set
+     */
+    public void setUlica(String ulica) {
+        this.ulica = ulica;
+    }
+
+    /**
+     * @param cisloDomu the cisloDomu to set
+     */
+    public void setCisloDomu(String cisloDomu) {
+        this.cisloDomu = cisloDomu;
+    }
+
 
     
 }
