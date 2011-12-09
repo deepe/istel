@@ -50,7 +50,7 @@ public class Jadro {
 
     }
 
-    private void odpojdDB() {
+    public void odpojdDB() {
         try {
             this.pripojenieDb.close();
         } catch (SQLException ex) {
@@ -132,18 +132,17 @@ public class Jadro {
     }
 
     public ArrayList<Kontakt> vyhladajKontakt(Kontakt kontakt) {
+        poslednaAktivita();
         Kontakt kontaktDoArray = null;
         ArrayList<Kontakt> odosliKontakty = new ArrayList<Kontakt>();
-        
-        poslednaAktivita();
+             
+        String dotaz = "SELECT meno, priezvisko, tel_cislo, ulica, cislo_domu,obec, psc FROM v_vyhladaj "+ 
+                "WHERE meno LIKE '%"+ kontakt.getOsoba().getMeno() +"%' AND priezvisko LIKE '%"+
+                kontakt.getOsoba().getPriezvisko() + "%' AND obec LIKE '%" +
+                kontakt.getAdresa().getObec() + "%' AND psc like '%" +
+                kontakt.getAdresa().getPsc() + "%'";
         try {
-            PreparedStatement statement = this.getConnection().prepareStatement(DatabaseSetting.QUERY_SELECT_VYHLADAJ);
-
-            statement.setString(1, kontakt.getOsoba().getMeno());
-            statement.setString(2, kontakt.getOsoba().getPriezvisko());
-            statement.setString(3, kontakt.getAdresa().getObec());
-            statement.setString(4, kontakt.getAdresa().getPsc());
-
+            PreparedStatement statement = this.getConnection().prepareStatement(dotaz);
             ResultSet result = statement.executeQuery();
             while(result.next()){
                 Osoba osoba = new Osoba(result.getString("meno"),result.getString("priezvisko"));
@@ -156,13 +155,6 @@ public class Jadro {
             System.out.println(ex.getMessage());
         }
         
-
-        //return null;
-        poslednaAktivita();
-        if (getUzivatel().jeObsluha()) {
-        } else {
-            System.out.println("Nie si obsluha!");
-        }
         return odosliKontakty;
     }
 
