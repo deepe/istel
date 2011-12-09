@@ -150,7 +150,6 @@
         <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
           <action class="istel.swingui.formular.VyhladajKontakt" id="Vyhladat" methodName="Vyhladat"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Vyhladat"/>
         <Property name="name" type="java.lang.String" value="jButton1" noResource="true"/>
       </Properties>
       <Events>

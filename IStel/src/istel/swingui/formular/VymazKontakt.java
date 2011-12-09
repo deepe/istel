@@ -11,6 +11,10 @@
 package istel.swingui.formular;
 
 import istel.Main;
+import istel.kontakt.Adresa;
+import istel.kontakt.Cislo;
+import istel.kontakt.Kontakt;
+import istel.kontakt.Osoba;
 import istel.swingui.IFormObsluha;
 
 /**
@@ -123,7 +127,16 @@ private void jVymazKontaktButtonActionPerformed(java.awt.event.ActionEvent evt) 
     
 
     if(!jTextMeno.getText().equalsIgnoreCase("") && !jTextPriezvisko.getText().equalsIgnoreCase("") && !jTextTelefon.getText().equalsIgnoreCase("")){
-        Main.getJadro().zmazKontakt(jTextMeno.getText(),jTextPriezvisko.getText(),jTextTelefon.getText());
+        Adresa adresa= new Adresa(null, null, null, null);
+        Cislo cislo = new Cislo(jTextTelefon.getText().trim());
+        Osoba osoba = new Osoba(jTextMeno.getText().trim(), jTextPriezvisko.getText().trim());
+        Kontakt kontakt = new Kontakt(osoba, adresa, cislo);
+        
+        if(Main.getJadro().zmazKontakt(kontakt)){
+            //TODO: pridaj label na vypisanie ze vsetko prebehlo OK
+        }else{
+            //TODO: label nastav na chybu
+        }
         
         System.out.println("DELETE * from cislo WHERE tel_cislo LIKE "+jTextTelefon.getText());
     }else {

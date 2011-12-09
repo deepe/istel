@@ -21,7 +21,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jSeparator1" alignment="0" pref="389" max="32767" attributes="0"/>
+                          <Component id="jSeparator1" alignment="0" pref="403" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -31,16 +31,16 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextMesto" alignment="0" pref="310" max="32767" attributes="0"/>
-                                  <Component id="jTextPSC" alignment="0" pref="310" max="32767" attributes="0"/>
-                                  <Component id="jTextTelefon" alignment="0" pref="310" max="32767" attributes="0"/>
+                                  <Component id="jTextMesto" alignment="0" pref="322" max="32767" attributes="0"/>
+                                  <Component id="jTextPSC" alignment="0" pref="322" max="32767" attributes="0"/>
+                                  <Component id="jTextTelefon" alignment="0" pref="322" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Component id="jWarningLabel" min="-2" pref="215" max="-2" attributes="0"/>
+                      <Component id="jLabelWarning" min="-2" pref="215" max="-2" attributes="0"/>
                       <EmptySpace pref="64" max="32767" attributes="0"/>
                       <Component id="jPridajKontaktButton" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -54,10 +54,10 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextPriezvisko" pref="310" max="32767" attributes="0"/>
-                          <Component id="jTextMeno" alignment="0" pref="310" max="32767" attributes="0"/>
-                          <Component id="jTextAdresa" alignment="0" pref="310" max="32767" attributes="0"/>
-                          <Component id="jCisloDomu" alignment="0" pref="310" max="32767" attributes="0"/>
+                          <Component id="jTextPriezvisko" pref="318" max="32767" attributes="0"/>
+                          <Component id="jTextMeno" alignment="0" pref="318" max="32767" attributes="0"/>
+                          <Component id="jTextUlica" alignment="0" pref="318" max="32767" attributes="0"/>
+                          <Component id="jTextCisloDomu" alignment="0" pref="318" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -81,12 +81,12 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextAdresa" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextUlica" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCisloDomu" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextCisloDomu" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -108,7 +108,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPridajKontaktButton" min="-2" max="-2" attributes="0"/>
-                  <Component id="jWarningLabel" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="jLabelWarning" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -128,7 +128,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Adresa:"/>
+        <Property name="text" type="java.lang.String" value="Ulica:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -156,7 +156,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextPriezvisko">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextAdresa">
+    <Component class="javax.swing.JTextField" name="jTextUlica">
     </Component>
     <Component class="javax.swing.JTextField" name="jTextMesto">
     </Component>
@@ -174,14 +174,14 @@
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
     </Component>
-    <Component class="javax.swing.JLabel" name="jWarningLabel">
+    <Component class="javax.swing.JLabel" name="jLabelWarning">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="text" type="java.lang.String" value="C. domu:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jCisloDomu">
+    <Component class="javax.swing.JTextField" name="jTextCisloDomu">
     </Component>
   </SubComponents>
 </Form>

@@ -11,21 +11,21 @@ package istel.kontakt;
 public class Adresa {
     
     private String obec;
-    private int psc;
+    private String psc;
     private int id_obec;
     
     private String ulica;
-    private int cisloDomu;
+    private String cisloDomu;
     private int id_ulica;
     
-    public Adresa(String obec, int psc, String ulica, int cisloDommu) {
+    public Adresa(String obec, String psc, String ulica, String cisloDommu) {
         this.obec = obec;
         this.psc = psc;
         this.ulica = ulica;
         this.cisloDomu = cisloDommu;
     }
     
-    public Adresa(int id_obec, String obec, int psc, int id_ulica, String ulica, int cisloDommu) {
+    public Adresa(int id_obec, String obec, String psc, int id_ulica, String ulica, String cisloDommu) {
         this.id_obec = id_obec;
         this.id_ulica = id_ulica;
         this.obec = obec;
@@ -37,7 +37,7 @@ public class Adresa {
     /**
      * @return the cisloDomu
      */
-    public int getCisloDomu() {
+    public String getCisloDomu() {
         return cisloDomu;
     }
 
@@ -65,7 +65,7 @@ public class Adresa {
     /**
      * @return the psc
      */
-    public int getPsc() {
+    public String getPsc() {
         return psc;
     }
 

@@ -12,12 +12,17 @@ package istel.swingui.formular;
 
 import istel.Jadro;
 import istel.Main;
+import istel.kontakt.Adresa;
+import istel.kontakt.Cislo;
+import istel.kontakt.Kontakt;
+import istel.kontakt.Osoba;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.crypto.Cipher;
 import javax.persistence.EntityManager;
 import javax.swing.table.AbstractTableModel;
 import org.jdesktop.application.Action;
@@ -165,15 +170,21 @@ public class VyhladajKontakt extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
-        String meno = jTextFieldMeno.getText();
-        String priezvisko = jTextFieldPriezvisko.getText();
-        String obec = jTextFieldObec.getText();
-        String psc = jTextFieldPSC.getText();
+        String meno = jTextFieldMeno.getText().trim();
+        String priezvisko = jTextFieldPriezvisko.getText().trim();
+        String obec = jTextFieldObec.getText().trim();
+        String psc = jTextFieldPSC.getText().trim();
         
+        //deepe uprava
+        Adresa adresa = new Adresa(obec, psc, null, null);
+        Cislo cislo = new Cislo(null);
+        Osoba osoba = new Osoba(meno, priezvisko);
+        Kontakt kontakt = new Kontakt(osoba, adresa, cislo);
         
-        ResultSet result = Main.jadro.vyhladajKontakt(meno, priezvisko, obec, psc);
-        Tabulka tabulka = new Tabulka(result);
-        jTable1.setModel(tabulka);
+        //TODO: Upravit tabulku a to pojde dalej
+        ArrayList<Kontakt> kontakty = Main.jadro.vyhladajKontakt(kontakt);
+       // Tabulka tabulka = new Tabulka(kontakty);
+       // jTable1.setModel(tabulka);
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
