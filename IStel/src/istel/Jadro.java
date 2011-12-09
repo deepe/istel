@@ -38,7 +38,7 @@ public class Jadro {
             Class.forName(DatabaseSetting.DRIVER_CLASS);
             this.pripojenieDb = DriverManager.getConnection(DatabaseSetting.URL,
                     DatabaseSetting.USER, DatabaseSetting.PASSWORD);
-    
+            
         } catch (SQLException ex) {
             System.out.println("Nepodarilo sa pirpojit k db");
         } catch (ClassNotFoundException ex) {
@@ -215,9 +215,10 @@ public class Jadro {
         pstmObec.setString(1, kontakt.getAdresa().getObec());
         pstmObec.setString(2, String.valueOf(kontakt.getAdresa().getPsc()));
         ResultSet resultObecId = pstmObec.executeQuery();
-
-        //System.out.println("id_obec=" + resultObecId.);
-        if (resultObecId.getRow() != 0) {
+               
+        resultObecId.last();
+        int rowCount = resultObecId.getRow();
+        if (rowCount != 0) {
             id_obec = resultObecId.getInt("id_obec");
 
         }
@@ -232,7 +233,9 @@ public class Jadro {
         pstmAdresa.setString(3, kontakt.getAdresa().getCisloDomu());
         ResultSet resultAdresaId = pstmAdresa.executeQuery();
 
-        if (resultAdresaId.getRow() != 0) {
+        resultAdresaId.last();
+        int rowCount = resultAdresaId.getRow();
+        if (rowCount != 0) {
             id_adresa = resultAdresaId.getInt("id_adresa");
 
         }
@@ -247,7 +250,9 @@ public class Jadro {
         pstmOsoba.setString(3, kontakt.getOsoba().getPriezvisko());
         ResultSet resultOsobaId = pstmOsoba.executeQuery();
 
-        if (resultOsobaId.getRow() != 0) {
+        resultOsobaId.last();
+        int rowCount = resultOsobaId.getRow();
+        if (rowCount != 0) {
             id_osoba = resultOsobaId.getInt("id_osoba");
 
         }
