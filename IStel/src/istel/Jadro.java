@@ -173,7 +173,7 @@ public class Jadro {
         } else {
             System.out.println("Nie si obsluha!");
         }
-        return false;
+        return true;
     }
 
     public boolean prihslasitSa(String meno, String heslo) {
