@@ -352,6 +352,11 @@ public class SwingUI extends javax.swing.JFrame {
         setBackground(new java.awt.Color(254, 254, 254));
         setMinimumSize(new java.awt.Dimension(800, 600));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanelMenu.setBorder(javax.swing.BorderFactory.createTitledBorder("Menu"));
         jPanelMenu.setName("jPanelMenu"); // NOI18N
@@ -393,6 +398,11 @@ public class SwingUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        Main.getJadro().odpojdDB();
+    }//GEN-LAST:event_formWindowClosing
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanelMenu;
     private javax.swing.JPanel jPanelTelo;

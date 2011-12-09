@@ -14,8 +14,7 @@ public class DatabaseSetting {
     public static final String PASSWORD = "kongo";
     
     //---------------------------------
-    public static final String QUERY_SELECT_VYHLADAJ = "SELECT meno,priezvisko,tel_cislo,ulica,cislo_domu,obec,psc from v_vyhladaj WHERE meno like ? OR priezvisko like ? OR obec like ? OR psc like ?";
-    public static final String QUERY_SELECT_VYHLADAJ_TEST = "SELECT priezvisko,meno,tel_cislo,ulica,cislo_domu,obec,psc from v_vyhladaj";
+    public static final String QUERY_SELECT_VYHLADAJ = "SELECT meno,priezvisko,tel_cislo,ulica,cislo_domu,obec,psc FROM v_vyhladaj WHERE meno LIKE '?%' AND priezvisko LIKE '%?% AND obec LIKE '?%' AND psc = ?";
        
     public static final String QUERY_SELECT_PRIVILEGIES = "SELECT prava FROM uzivatelia WHERE meno = ? AND heslo = ?";
     public static final String QUERY_ADD_INTO_OBEC = "INSERT INTO obec (obec, psc) VALUES (?, ?)";
