@@ -25,7 +25,10 @@ public class Main {
     public static void main(String[] args) {
         getJadro();
         new Thread(new OdhlasCuvac()).start();
-        new SwingUI().setVisible(true);
+        SwingUI okno = new SwingUI();
+        okno.setVisible(true);
+        //TODO: odriesit zatvorenie spojenia db
+        // ak sa zatvori okno zavolat jadro.odpojDB();
 
     }
 }
