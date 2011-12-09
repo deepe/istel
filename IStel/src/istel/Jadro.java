@@ -79,9 +79,7 @@ public class Jadro {
                     id_obec = this.vyberObecId(kontakt);
                 }
                 kontakt.getAdresa().setId_obec(id_obec);
-                
-                System.out.println(kontakt.getAdresa().getId_obec());
-                
+                    
                 
                 int id_adresa = this.vyberAdresaId(kontakt);
                 if(id_adresa == -1) {
@@ -130,7 +128,7 @@ public class Jadro {
         } else {
             System.out.println("Nie si obsluha!");
         }
-        return false;
+        return true;
     }
 
     public ArrayList<Kontakt> vyhladajKontakt(Kontakt kontakt) {
