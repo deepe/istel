@@ -27,5 +27,15 @@ public class DatabaseSetting {
     public static final String QUERY_SELECT_ID_ADRESA= "SELECT id_adresa FROM adresa WHERE id_obec = ? AND ulica = ? AND cislo_domu = ?";
     public static final String QUERY_SELECT_ID_OSOBA= "SELECT id_osoba FROM osoba WHERE id_adresa = ? AND meno = ? AND priezvisko = ?";
     
+    public final static String QUERY_DELETE_FROM_OBEC ="DELETE * FROM obec WHERE id_obec = ?";
+    public final static String QUERY_DELETE_FROM_ADRESA ="DELETE * FROM adresa WHERE id_adresa = ?";
+    public final static String QUERY_DELETE_FROM_OSOBA ="DELETE * FROM osoba WHERE id_osoba = ?";
+    public final static String QUERY_DELETE_FROM_CISLO ="DELETE * FROM cislo WHERE id_cislo = ?";
+    
+    public final static String QUERY_SELECT_FOR_DELETE_ID_OBEC = "SELECT id_obec FROM adresa WHERE id_adresa = ?";
+    public final static String QUERY_SELECT_FOR_DELETE_ID_ADRESA = "SELECT id_adresa FROM osoba WHERE id_osoba = ?";
+    public final static String QUERY_SELECT_FOR_DELETE_ID_OSOBA = "SELECT id_osoba FROM osoba WHERE meno = ? AND priezvisko = ?";
+    public final static String QUERY_SELECT_FOR_DELETE_ID_CISLO = "SELECT id_cislo FROM cislo WHERE id_osoba = ?";
+    
     private DatabaseSetting() {}
 }

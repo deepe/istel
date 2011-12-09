@@ -50,7 +50,7 @@ public class Jadro {
 
     }
 
-    private void odpojdDB() {
+    public void odpojdDB() {
         try {
             this.pripojenieDb.close();
         } catch (SQLException ex) {
@@ -132,7 +132,6 @@ public class Jadro {
     }
 
     public ArrayList<Kontakt> vyhladajKontakt(Kontakt kontakt) {
-        Kontakt kontaktDoArray = null;
         ArrayList<Kontakt> odosliKontakty = new ArrayList<Kontakt>();
         
         poslednaAktivita();
@@ -181,7 +180,7 @@ public class Jadro {
         } else {
             System.out.println("Nie si obsluha!");
         }
-        return false;
+        return true;
     }
 
     public boolean prihslasitSa(String meno, String heslo) {

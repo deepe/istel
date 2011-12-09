@@ -44,6 +44,7 @@ public class VymazKontakt extends javax.swing.JPanel {
         jTextTelefon = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jVymazKontaktButton = new javax.swing.JButton();
+        jLabelWarning = new javax.swing.JLabel();
 
         jLabel1.setText("Meno:");
         jLabel1.setName("jLabel1"); // NOI18N
@@ -75,30 +76,33 @@ public class VymazKontakt extends javax.swing.JPanel {
             }
         });
 
+        jLabelWarning.setName("jLabelWarning"); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextTelefon, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
-                                    .addComponent(jTextMeno, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
-                                    .addComponent(jTextPriezvisko, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE))))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jVymazKontaktButton)
-                        .addGap(46, 46, 46))))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextTelefon, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                            .addComponent(jTextMeno, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                            .addComponent(jTextPriezvisko, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE))))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addComponent(jLabelWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jVymazKontaktButton)
+                .addGap(46, 46, 46))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,7 +122,9 @@ public class VymazKontakt extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jVymazKontaktButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabelWarning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jVymazKontaktButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -135,15 +141,18 @@ private void jVymazKontaktButtonActionPerformed(java.awt.event.ActionEvent evt) 
         Osoba osoba = new Osoba(jTextMeno.getText().trim(), jTextPriezvisko.getText().trim());
         Kontakt kontakt = new Kontakt(osoba, adresa, cislo);
         
-        if(Main.getJadro().zmazKontakt(kontakt)){
-            //TODO: pridaj label na vypisanie ze vsetko prebehlo OK
+        if(Main.getJadro().zmazKontakt(kontakt)){//TODO: pridaj label na vypisanie ze vsetko prebehlo OK
+            jTextMeno.setText("");
+            jTextPriezvisko.setText("");
+            jTextTelefon.setText("");
+            jLabelWarning.setText("Kontakt uspesne zmazany!");
         }else{
-            //TODO: label nastav na chybu
+            jLabelWarning.setText("Kontakt sa nepodarilo zmazat!");
         }
         
         System.out.println("DELETE * from cislo WHERE tel_cislo LIKE "+jTextTelefon.getText());
     }else {
-           System.out.println("vypln vsetko");
+           jLabelWarning.setText("Vsetky polia su povinne!");
     }// TODO add your handling code here:
 }//GEN-LAST:event_jVymazKontaktButtonActionPerformed
 
@@ -151,6 +160,7 @@ private void jVymazKontaktButtonActionPerformed(java.awt.event.ActionEvent evt) 
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabelWarning;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextMeno;
     private javax.swing.JTextField jTextPriezvisko;
