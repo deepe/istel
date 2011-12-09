@@ -4,9 +4,9 @@
  */
 
 /*
- * VymazKontakt.java
+ * VymazKontakt2.java
  *
- * Created on Dec 1, 2011, 3:54:20 AM
+ * Created on Dec 9, 2011, 10:21:12 PM
  */
 package istel.swingui.formular;
 
@@ -15,15 +15,14 @@ import istel.kontakt.Adresa;
 import istel.kontakt.Cislo;
 import istel.kontakt.Kontakt;
 import istel.kontakt.Osoba;
-import istel.swingui.IFormObsluha;
 
 /**
  *
  * @author erik
  */
-public class VymazKontakt extends javax.swing.JPanel implements IFormObsluha {
+public class VymazKontakt extends javax.swing.JPanel {
 
-    /** Creates new form VymazKontakt */
+    /** Creates new form VymazKontakt2 */
     public VymazKontakt() {
         initComponents();
     }
@@ -40,10 +39,10 @@ public class VymazKontakt extends javax.swing.JPanel implements IFormObsluha {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         jTextMeno = new javax.swing.JTextField();
         jTextPriezvisko = new javax.swing.JTextField();
         jTextTelefon = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
         jVymazKontaktButton = new javax.swing.JButton();
 
         jLabel1.setText("Meno:");
@@ -52,16 +51,21 @@ public class VymazKontakt extends javax.swing.JPanel implements IFormObsluha {
         jLabel2.setText("Priezvisko:");
         jLabel2.setName("jLabel2"); // NOI18N
 
-        jLabel3.setText("Tel. cislo:");
+        jLabel3.setText("Cislo:");
         jLabel3.setName("jLabel3"); // NOI18N
 
-        jSeparator1.setName("jSeparator1"); // NOI18N
-
         jTextMeno.setName("jTextMeno"); // NOI18N
+        jTextMeno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextMenoActionPerformed(evt);
+            }
+        });
 
         jTextPriezvisko.setName("jTextPriezvisko"); // NOI18N
 
         jTextTelefon.setName("jTextTelefon"); // NOI18N
+
+        jSeparator1.setName("jSeparator1"); // NOI18N
 
         jVymazKontaktButton.setText("Vymaz kontakt");
         jVymazKontaktButton.setName("jVymazKontaktButton"); // NOI18N
@@ -78,54 +82,53 @@ public class VymazKontakt extends javax.swing.JPanel implements IFormObsluha {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextTelefon, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
-                            .addComponent(jTextMeno, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
-                            .addComponent(jTextPriezvisko, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)))
-                    .addComponent(jVymazKontaktButton, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextTelefon, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                                    .addComponent(jTextMeno, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                                    .addComponent(jTextPriezvisko, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE))))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jVymazKontaktButton)
+                        .addGap(46, 46, 46))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextMeno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextPriezvisko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextPriezvisko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(8, 8, 8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jVymazKontaktButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+private void jTextMenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextMenoActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jTextMenoActionPerformed
+
 private void jVymazKontaktButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jVymazKontaktButtonActionPerformed
-
-   
-//    if(!jTextMeno.getText().equals("") && !jTextPriezvisko.getText().equalsIgnoreCase("") && !jTextTelefon.getText().equalsIgnoreCase("")) {
-//              Main.getJadro().zmazKontakt(jTextMeno.getText(), jTextPriezvisko.getText(), jTextTelefon.getText());
-//               jWarningLabel.setText("");
-//    }else{
-//        jWarningLabel.setText("Vsetky polozky su povinne!");
-//    }
-    
-
+ 
     if(!jTextMeno.getText().equalsIgnoreCase("") && !jTextPriezvisko.getText().equalsIgnoreCase("") && !jTextTelefon.getText().equalsIgnoreCase("")){
         Adresa adresa= new Adresa(null, null, null, null);
         Cislo cislo = new Cislo(jTextTelefon.getText().trim());
@@ -141,8 +144,7 @@ private void jVymazKontaktButtonActionPerformed(java.awt.event.ActionEvent evt) 
         System.out.println("DELETE * from cislo WHERE tel_cislo LIKE "+jTextTelefon.getText());
     }else {
            System.out.println("vypln vsetko");
-    }
-
+    }// TODO add your handling code here:
 }//GEN-LAST:event_jVymazKontaktButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
